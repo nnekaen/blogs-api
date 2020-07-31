@@ -13,8 +13,11 @@ if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_ac
                     <?php if ( is_active_sidebar( 'footer-3' )) : ?>
                         <div class="col-12 col-sm-2"><?php dynamic_sidebar( 'footer-3' ); ?></div>
                     <?php endif; ?>
-					<?php if ( is_active_sidebar( 'footer-3' )) : ?>
-                        <div class="col-12 col-sm-2"><?php dynamic_sidebar( 'footer-3' ); ?></div>
+					<?php if ( is_active_sidebar( 'footer-4' )) : ?>
+                        <div class="col-12 col-sm-2"><?php dynamic_sidebar( 'footer-4' ); ?></div>
+                    <?php endif; ?>
+					<?php if ( is_active_sidebar( 'footer-5' )) : ?>
+                        <div class="col-12 col-sm-4"><?php dynamic_sidebar( 'footer-5' ); ?></div>
                     <?php endif; ?>
                 </div>
             </div>
