@@ -111,6 +111,42 @@ function wp_bootstrap_starter_content_width() {
 }
 add_action( 'after_setup_theme', 'wp_bootstrap_starter_content_width', 0 );
 
+
+function callcategoriesapi(){
+		
+	return $response = wp_remote_get( 'https://protonmail.com/blog/wp-json/wp/v2/categories' );
+	
+	}
+
+function get_categories_apii() {
+$getcategories = '';	
+$response = wp_remote_get( 'https://protonmail.com/blog/wp-json/wp/v2/categories' );	
+// Exit if error.
+	if ( is_wp_error( $response ) ) {
+		return;
+	}
+
+	// Get the body.
+	$term = json_decode( wp_remote_retrieve_body( $response ));
+	// Exit if nothing is returned.
+	if ( empty( $terms ) ) {
+		return;
+	}
+	echo '<div class="row">';
+
+	// If there are posts.
+	if ( ! empty( $terms ) ) {   
+		// For each post.
+		foreach ( $term as $term ) {
+            $term_name    = $term->name; // post title 			
+            // Show a linked title and post date.
+			echo '<div class=""><div class="">' . $term_name   . '</a></div></div><br />';
+		}
+	}
+}
+    add_action( 'after_setup_theme', 'get_categories_apii' );
+
+
 /**
  * Register widget area.
  *

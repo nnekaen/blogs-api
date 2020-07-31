@@ -15,12 +15,12 @@
     if(!$enable_vc ) {
     ?>
     <header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
     <?php } ?>
 
-	<div class="entry-content">
-		<?php
+	<div class=" container-fluid entry-content">
+					<?php
 			the_content();
 
 			wp_link_pages( array(

@@ -10,15 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div>
+ <div class="container-blog">
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); 
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
@@ -28,6 +26,9 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
+	<div class="post-thumbnail">
+		<?php the_post_thumbnail(); ?>
+	</div>
 	<div class="entry-content">
 		<?php
         if ( is_single() ) :
@@ -46,4 +47,5 @@
 	<footer class="entry-footer">
 		<?php wp_bootstrap_starter_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	 </div>
 </article><!-- #post-## -->

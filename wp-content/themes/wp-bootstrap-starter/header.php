@@ -21,10 +21,40 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
+
+<!-- Floating Social Media bar Starts -->
+<div class="social-media">
+  <div class="fl-fl float-fb">
+    <i class="fa fa-facebook"></i>
+    <a href="https://facebook.com/ProtonMail" target="_blank"> Follow us!</a>
+  </div>
+  <div class="fl-fl float-tw">
+    <i class="fa fa-twitter"></i>
+    <a href="https://twitter.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-gp">
+    <i class="fa fa-reddit"></i>
+    <a href="" target="_blank">Recommend us!</a>
+  </div>
+  <div class="fl-fl float-rs">
+    <i class="fa fa-rss"></i>
+    <a href="" target="_blank">Follow via RSS</a>
+  </div>
+  <div class="fl-fl float-ig">
+    <i class="fa fa-instagram"></i>
+    <a href="https://instagram.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-pn">
+    <i class="fa fa-pinterest"></i>
+    <a href="" target="_blank">Follow us!</a>
+  </div>
+</div>
+</div>
+<!-- Floating Social Media bar Ends -->
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 	<header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
-        <div class="container">
+        <div class="container-fluid">
             <nav class="navbar navbar-expand-xl p-0">
                 <div class="navbar-brand">
                     <?php if ( get_theme_mod( 'wp_bootstrap_starter_logo' ) ): ?>
@@ -83,6 +113,4 @@
         </div>
     <?php endif; ?>
 	<div id="content" class="site-content">
-		<div class="container">
-			<div class="row">
-                <?php endif; ?>
+		        <?php endif; ?>

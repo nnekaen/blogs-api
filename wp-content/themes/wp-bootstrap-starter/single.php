@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-sm-12 col-lg-8">
-		<main id="main" class="site-main" role="main">
+	<section id="primary" class="content-area col-sm-12 col-lg-12">
+		<main id="main" class="site-main single-blog" role="main">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -29,7 +29,8 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
+   
 
 <?php
-get_sidebar();
+
 get_footer();

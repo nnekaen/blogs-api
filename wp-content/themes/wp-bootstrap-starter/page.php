@@ -12,11 +12,14 @@
  * @package WP_Bootstrap_Starter
  */
 
-get_header(); ?>
+get_header(); 
 
-	<section id="primary" class="content-area col-sm-12 col-lg-8">
+?>
+	<section id="primary" class="content-area col-sm-12 col-lg-12">
+		
+		<div class="container">
+			
 		<main id="main" class="site-main" role="main">
-
 			<?php
 			while ( have_posts() ) : the_post();
 
@@ -31,8 +34,19 @@ get_header(); ?>
 			?>
 
 		</main><!-- #main -->
+			</div>
 	</section><!-- #primary -->
+	
 
+<div class="container-fluid">
+
+     <section id="emails" class="free-email-section col-sm-12 col-lg-12"> 
+    <div class="container-fluid text-center">
+		<h5 class="text-center">Get your secure email account</h5>
+		<a href="/signup" class="btn btn-primary btn-lg">Create Account</a>
+	</div>
+</section>
+		
+</div>
 <?php
-get_sidebar();
 get_footer();
