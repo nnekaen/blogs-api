@@ -29,7 +29,17 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
-   
+  
+<div class="container-fluid">
+
+     <section id="emails" class="free-email-section col-sm-12 col-lg-12"> 
+    <div class="container-fluid text-center">
+		<h5 class="text-center">Get your secure email account</h5>
+		<a href="/signup" class="btn btn-primary btn-lg">Create Account</a>
+	</div>
+</section>
+		
+</div> 
 
 <?php
 

@@ -36,7 +36,6 @@ get_header();
 		</main><!-- #main -->
 			</div>
 	</section><!-- #primary -->
-	
 
 <div class="container-fluid">
 

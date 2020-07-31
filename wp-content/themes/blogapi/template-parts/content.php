@@ -20,15 +20,15 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php wp_bootstrap_starter_posted_on(); ?>
-		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
 	<div class="post-thumbnail">
 		<?php the_post_thumbnail(); ?>
 	</div>
+	<div class="entry-meta">
+			<?php wp_bootstrap_starter_posted_on(); ?>
+		</div><!-- .entry-meta -->
 	<div class="entry-content">
 		<?php
         if ( is_single() ) :
