@@ -14,4 +14,8 @@ This project requires replicated the <a href="https://protonmail.com/blog/">blog
       
    <h4>Retrieving the last five posts from ProtonMail API</h4> 
    <h4>Displying blog contents in single post</h4>
-   
+   <h4>Other deliverables </h4>
+   <b>SEO</b> :
+   <b> Page speed performance</b>:
+   <b> Isotope Layout </b>
+   <b> Mobile responsiveness </b>
