@@ -79,8 +79,16 @@ wp_enqueue_script('Isotope');
 add_action( 'wp_enqueue_scripts', 'tthq_add_custom_isotope_js' );
 
 function tthq_isotope_scripts_function() {
-  wp_enqueue_script( 'js-file', get_template_directory_uri() . '/js/isotope.js');
+  wp_enqueue_script( 'js-file', get_stylesheet_directory_uri()  . '/js/script.js');
 }
 add_action('wp_enqueue_scripts','tthq_isotope_scripts_function');
 
+// include custom jQuery
+function shapeSpace_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
