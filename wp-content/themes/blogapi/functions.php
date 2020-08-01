@@ -76,7 +76,7 @@ function shapeSpace_include_custom_jquery() {
 	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js', array(), null, true);
 
 }
-add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
+add_action('admin_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 
 
 function tthq_add_custom_isotope_js() {
@@ -85,10 +85,4 @@ wp_register_script( 'Isotope', 'https://npmcdn.com/isotope-layout@3/dist/isotope
 wp_enqueue_script('Isotope');
 }
 }
-add_action( 'wp_enqueue_scripts', 'tthq_add_custom_isotope_js' );
-
-function tthq_isotope_scripts_function() {
-  wp_enqueue_script( 'js-file', get_stylesheet_directory_uri()  . '/js/script.js');
-}
-add_action('wp_enqueue_scripts','tthq_isotope_scripts_function');
-
+add_action( 'admin_enqueue_scripts', 'tthq_add_custom_isotope_js' );
