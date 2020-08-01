@@ -66,10 +66,10 @@
                     <?php endif; ?>
 
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button"   aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+     
                 <?php
                 wp_nav_menu(array(
                 'theme_location'    => 'primary',
@@ -113,4 +113,14 @@
         </div>
     <?php endif; ?>
 	<div id="content" class="site-content">
-		        <?php endif; ?>
+		        <?php endif; ?>		
+		<script>
+		 
+		$(document).ready(function(){
+			 $(".navbar-toggler").click(function(){
+				 $("#main-nav").fadeToggle(500);
+			 }); 
+		 
+	});
+		
+		</script>
