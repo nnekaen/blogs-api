@@ -69,6 +69,15 @@ add_action( 'wp_enqueue_scripts', 'tthq_add_custom_fa_css' );
 function tthq_add_custom_fa_css() {
 wp_enqueue_style( 'custom-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 }
+// include custom jQuery
+function shapeSpace_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
+
 
 function tthq_add_custom_isotope_js() {
 {
@@ -82,13 +91,4 @@ function tthq_isotope_scripts_function() {
   wp_enqueue_script( 'js-file', get_stylesheet_directory_uri()  . '/js/script.js');
 }
 add_action('wp_enqueue_scripts','tthq_isotope_scripts_function');
-
-// include custom jQuery
-function shapeSpace_include_custom_jquery() {
-
-	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js', array(), null, true);
-
-}
-add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 

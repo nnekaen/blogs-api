@@ -26,3 +26,7 @@ require_once( ABSPATH . 'wp-admin/includes/post.php' );
 require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
 
 
+function tthq_isotope_scripts_functions() {
+  wp_enqueue_script( 'js-file', get_stylesheet_directory_uri()  . '/js/script.js');
+}
+add_action('wp_enqueue_scripts','tthq_isotope_scripts_functions');
