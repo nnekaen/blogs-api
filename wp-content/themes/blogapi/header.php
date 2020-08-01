@@ -114,13 +114,4 @@
     <?php endif; ?>
 	<div id="content" class="site-content">
 		        <?php endif; ?>		
-		<script>
-		 
-		$(document).ready(function(){
-			 $(".navbar-toggler").click(function(){
-				 $("#main-nav").fadeToggle(500);
-			 }); 
-		 
-	});
 		
-		</script>

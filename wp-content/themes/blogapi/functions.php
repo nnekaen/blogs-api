@@ -69,3 +69,18 @@ add_action( 'wp_enqueue_scripts', 'tthq_add_custom_fa_css' );
 function tthq_add_custom_fa_css() {
 wp_enqueue_style( 'custom-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 }
+
+function tthq_add_custom_isotope_js() {
+{
+wp_register_script( 'Isotope', 'https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js', null, null, true );
+wp_enqueue_script('Isotope');
+}
+}
+add_action( 'wp_enqueue_scripts', 'tthq_add_custom_isotope_js' );
+
+function tthq_isotope_scripts_function() {
+  wp_enqueue_script( 'js-file', get_template_directory_uri() . '/js/isotope.js');
+}
+add_action('wp_enqueue_scripts','tthq_isotope_scripts_function');
+
+
