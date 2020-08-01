@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<title>Blog API – Just another WordPress site</title>
+
+<link rel="dns-prefetch" href="https://nnekaen.github.io/blogs-api">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//npmcdn.com">
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//s.w.org">
+
+
+<link rel="stylesheet" id="wp-block-library-css" href="https://nnekaen.github.io/blogs-api/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-bootstrap-css-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-fontawesome-cdn-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/css/fontawesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="chld_thm_cfg_parent-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="custom-fa-css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=5.4.2" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-style-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/blogapi/style.css" type="text/css" media="all">
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/blogapi/js/scripts.js"></script>
+<script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js?ver=5.4.2"></script>
+
+
+
+
+
+
+
+
+    <style type="text/css">
+        #page-sub-header { background: #505061; }
+    </style>
+    		<style type="text/css" id="wp-custom-css">
+			/* start: general layout styling */html, body{
+	position:relative !important;
+	height:100vh !important;
+}
+.box{
+	width:100%;
+	height:96%;
+		border:1px solid lightgray;
+	 box-shadow:0 0px 5px 0px lightgray;
+	display:inline-block;
+	  position : relative;
+	margin-bottom:50px;
+	border-bottom: 10px solid #9199cb;
+}
+
+.container{	
+	max-width:90%;
+}
+.container-blog {
+	width: 70%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;	
+}
+.entry-meta{
+	border-bottom:2px solid #9199cb !important;
+margin-top:20px;
+}
+
+.item{
+	left:0 !important;
+	position:relative !important;
+	display:inline-block;
+}
+.ribbon{
+  position: absolute;
+  content: '';
+  background: white;
+opacity:0.9;
+	/* Added lines */
+  top:2rem;
+	padding:8px;
+		border-right: 1px solid #9199cb;
+
+}
+.comments-area{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+	 border-top:2px solid #9199cb !important;
+}
+.csbtns{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+  margin-left: auto !important;
+}
+.csbtns .fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -8px;
+}
+.csbtns .fa-envelope:before {
+    content: "\f0e0";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa-twitter:before {
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa{
+	color:white !important;
+	background:#9199cb;
+	border-radius:100%;
+  width:40px !important;
+	height:40px;
+	padding:auto;
+	text-align:center;
+	
+
+	
+	
+}
+.post-navigation{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+}
+.container-fluid{
+	padding:0px;
+}
+#site-content{
+	width:100% !important;
+}
+.alert-info {
+    color: white;;
+	opacity:0.7;
+    background-color: #9199cb;
+    border-color: #9199cb
+}
+.nav-next a{
+	border:1px solid #9199cb !important; 
+	height:60px;
+}
+a{
+	color: #9199cb !important; 
+}
+.nav-previous a{
+	border:1px solid #9199cb !important; 
+		height:60px;
+}
+.align-text{
+	margin:10px;
+}
+.span{
+	font-size:18px;
+	color:#9199cb;
+	font-weight:700;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+	  padding:15px;
+	  margin-top:20px;
+}
+
+.btn-primary:hover {
+    color:white !important;
+    background-color:transparent;
+    border-color: #9199cb;
+}
+.date {
+	font-size:14px;
+	font-weight:bold;
+	font-style:italic;
+	color:#505061;
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+.image{
+	box-shadow: 5px 0px 10px lightgray
+}
+.img-box img{
+	height: 96%;
+    object-fit: cover;
+    border-bottom: 20px solid #9199cb;
+    margin-bottom: 30px;
+}
+.overlayn .texts h1{
+	color: black !important;
+	font-weight:700;
+	z-index:0;
+	margin:0 auto;
+	padding:20px 0px;
+	width:70%;	background:rgba(255,255,255,0.95);
+	
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 96%;
+  width: 100%;
+  opacity: 0;
+	margin-bottom: 30px;
+  transition: .5s ease;
+  background-color: #9199cb;
+}
+
+.container-img:hover .overlay {
+  opacity: 1;
+}
+.container-img {
+  position: relative;
+}
+.text h3{
+	color:white;
+}
+.text {
+  color: white;
+  font-size: 25px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+	margin:0 auto;
+	padding:20px 10px;
+	background:#505061;
+	width:70%;
+	
+}
+#primary{
+	margin-top:0px;
+}
+#content.site-content {
+    padding-bottom: 0.75rem;
+    padding-top: 0.125rem;
+}
+
+h1.entry-title{
+    font-size: 3.01rem;
+    border-bottom: 1px solid #eaecef;
+	color:#9199cb !important;
+	text-align:center;
+}
+h1{
+	color:white !important;
+}
+
+#main-nav {
+  width: 100.1%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+	text-align:center;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+#main-nav  a {
+	font-size:1.04em !important;
+
+}
+.menu-item a:hover{
+	color:#9199cb !important;
+}
+.site-header {
+	background:#505061 !important;
+	color:white !important;
+}
+.site-header a {
+	background:#505061 !important;
+	color:white !important;
+}
+.navbar-toggler-icon{
+	color:blue !important;
+}
+ .navbar-toggler  {
+    color: white !important;
+    border-color: white !important;
+}
+#post-23 .entry-header h1{
+display:none;	
+}
+#page-sub-header{
+	background:none;
+	margin-top:-25px;
+}
+#page-sub-header p{
+	color:#9199cb !important;
+	font-style:italic;
+	margin-top:-20px;
+}
+#page-sub-header h1{
+	color:#9199cb !important;
+	font-size:35px !important;
+	margin-top:-30px !important;
+}
+.fa-angle-down{
+	color:#505061 !important;
+	font-size:60px !important;
+	font-weight:bold;
+	margin-top:-100px;
+}
+h2{
+	color:#505061;
+}
+.readmore{
+	color:white !important;
+	background:#9199cb;
+	padding:10px;
+	border-radius:3px;
+}
+
+.readmore:hover{
+	color:#9199cb !important;
+	background:transparent;
+	border:1px solid #9199cb;
+	padding:10px;
+	text-decoration:none;
+	border-radius:3px;
+}
+#emails{
+	background:#505061;
+}
+.free-email-section {
+    padding: 3rem 0 4rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    clear: both;
+}
+.free-email-section h5 {
+    font-size: 2em;
+	  color:white;
+}
+
+/* Start: Recommended Isotope styles */
+ 
+/**** Isotope Filtering ****/
+ 
+.isotope-item {
+  z-index: 2;
+}
+ 
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+ 
+
+/* start: Social media styling */
+.fl-fl {
+  background: #505061;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 4px;
+  width: 195px;
+  position: fixed;
+  right: -160px;
+  z-index: 1000;
+	  vertical-align: middle !important;
+  font: normal normal 10px Arial;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.fa {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 0;
+  width: 40px;
+  margin-left: 8px;
+}
+
+.fl-fl:hover {
+  right: 0;
+}
+
+.fl-fl a {
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  line-height: 43px!important;
+  vertical-align: top !important;
+}
+
+.float-fb {
+  top: 160px;
+}
+
+.float-tw {
+  top: 215px;
+}
+.fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+    margin-left: -5px;
+}
+.float-gp {
+  top: 270px;
+}
+
+.float-rs {
+  top: 325px;
+}
+
+.float-ig {
+  top: 380px;
+}
+.social-media .fl-fl{
+	margin-top:16vh;
+}
+
+.float-pn {
+  top: 435px;
+}
+/* end: Social media styling */
+
+/* start: Isotope.js styling */
+#filters{
+	margin-left:-40px !important;margin-bottom:-15px;
+}
+.item {
+	  top:0px !important;
+
+}
+
+#isotope-list {
+    position: relative;
+	  margin-top:0px;
+	  height:100% !important;
+	  display:block;
+}
+.btn-ghost.alt {
+    color: #9199cb;
+    background-color: transparent;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+	margin-right:5px;
+}
+.btn-ghost.alt:hover {
+    color: white !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+}
+.selected{
+	background-color: #9199cb !important;
+	color:white !important;
+}
+.all{
+}
+.bar {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+#isotope-list:after {
+    content: '';
+    display: block !important;
+    clear: both !important;
+}
+/* end: Isotope styling */
+#footer-widget ul{
+	margin:0;
+	padding:0;
+}
+#footer-widget ul li{
+	list-style:none !important;
+	padding-bottom:9px;
+}
+.footer_socials i{
+	color:#9199cb;
+}
+.footer_socials li{
+	padding-bottom:-10px;
+	margin:0;
+	margin-bottom:-20px;
+	list-style:none;
+}
+.site-footer{
+	border-top:2px solid #505061;
+}		</style>
+		</head>
+
+<body class="home page-template-default page page-id-23">
+<div id="page" class="site">
+
+
+<div class="social-media">
+  <div class="fl-fl float-fb">
+    <i class="fa fa-facebook"></i>
+    <a href="https://facebook.com/ProtonMail" target="_blank"> Follow us!</a>
+  </div>
+  <div class="fl-fl float-tw">
+    <i class="fa fa-twitter"></i>
+    <a href="https://twitter.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-gp">
+    <i class="fa fa-reddit"></i>
+    <a href="" target="_blank">Recommend us!</a>
+  </div>
+  <div class="fl-fl float-rs">
+    <i class="fa fa-rss"></i>
+    <a href="" target="_blank">Follow via RSS</a>
+  </div>
+  <div class="fl-fl float-ig">
+    <i class="fa fa-instagram"></i>
+    <a href="https://instagram.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-pn">
+    <i class="fa fa-pinterest"></i>
+    <a href="" target="_blank">Follow us!</a>
+  </div>
+</div>
+</div>
+
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    	<header id="masthead" class="site-header navbar-static-top navbar-light" role="banner">
+        <div class="container">
+            <nav class="navbar navbar-expand-xl p-0">
+                <div class="navbar-brand">
+                                            <a class="site-title" href="https://nnekaen.github.io/blogs-api/">Blog API</a>
+                    
+                </div>
+                <button class="navbar-toggler" type="button" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+     
+                <div id="main-nav" class="collapse navbar-collapse justify-content-end"><ul id="menu-menu-1" class="navbar-nav"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1170" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1170 nav-item"><a title="About" href="https://protonmail.com/about" class="nav-link">About</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1171 nav-item"><a title="Security" href="https://protonmail.com/security-details" class="nav-link">Security</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-23 current_page_item active menu-item-1169 nav-item"><a title="blog" href="https://nnekaen.github.io/blogs-api/" class="nav-link" aria-current="page">blog</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1172 nav-item"><a title="Careers" href="https://careers.protonmail.com/" class="nav-link">Careers</a></li>
+</ul></div>
+            </nav>
+        </div>
+	</header>
+            <div id="page-sub-header">
+            <div class="container">
+                <h1>
+                    ProtonMail                </h1>
+                <p>
+                    Blog section                </p>
+                <a href="#content" class="page-scroller"><i class="fa fa-fw fa-angle-down"></i></a>
+            </div>
+        </div>
+    	<div id="content" class="site-content">
+		        		
+			<section id="primary" class="content-area col-sm-12 col-lg-12">
+		
+		<div class="container">
+			
+		<main id="main" class="site-main" role="main">
+			
+<article id="post-23" class="post-23 page type-page status-publish has-post-thumbnail hentry">
+	    <header class="entry-header">
+		<h1 class="">blog</h1>	</header>
+    
+	<div class=" container-fluid entry-content">
+					<ul id="filters"><div class="bar all"> <li><a class="btn btn-ghost alt" href="#" data-filter="*">Everything</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".news">Articles & News</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".encryption">Encryption</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".press">Press</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".privacy">Privacy</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".release-notes">Releases</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".security">Security</a></li></div><div class="bar"><li><a class="btn btn-ghost alt" href="#" data-filter=".uncategorized">Uncategorized</a></li></div></ul><div class="" id="isotope-list"><div class="row row-eq-height"><div class="col-lg-6"><div class="container-img img-box" style="backgground-image:url(" https:><img class="image" src="https://protonmail.com/blog/wp-content/uploads/2020/07/2020-07-big-tech-hearing.png"><div class="overlayn">
+    <div class="text"><span class="span">Featured</span><h1>Four misleading claims tech CEOs told Congress</h1></div></div><div class="overlay">
+    <div class="text"><h3></h3><p>On Wednesday, the CEOs of four massive tech companies — Google, Apple, Facebook, and Amazon — testified before a congressional investigation about those companies’ anti-competitive practices. The CEOs were eager to portray their companies as under constant threat from competitors. However, the congressional subcommittee raised multiple examples of the companies using their power to spy on, …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/tech-ceos-hearing" target='\"_blank\"'> Read More</a></div></div></div></div><div class="col-lg-3 privacy item"><div class="box"><img src="https://protonmail.com/blog/wp-content/uploads/2020/07/2020-07-big-tech-hearing.png"><div class="overlayn">
+    <div class="ribbon"><span class="span">Privacy</span></div></div><h2 class="align-text">Four misleading claims tech CEOs told Congress</h2><p class="align-text date"> July 30th, 2020</p><p class="align-text">On Wednesday, the CEOs of four massive tech companies — Google, Apple, Facebook, and Amazon — testified before a congressional investigation about those companies’ anti-competitive practices. The CEOs were eager to portray their companies as under constant threat from competitors. However, the congressional subcommittee raised multiple examples of the companies using their power to spy on, …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/tech-ceos-hearing" target='\"_blank\"'> Read More</a></div></div><br><div class="col-lg-3 news item"><div class="box"><img src="https://protonmail.com/blog/wp-content/uploads/2020/07/2020-07-24-whack.png"><div class="overlayn">
+    <div class="ribbon"><span class="span">Articles & News</span></div></div><h2 class="align-text">Three basic facts Congress must understand about Big Tech</h2><p class="align-text date"> July 24th, 2020</p><p class="align-text">Wednesday, July 29, is an important day for the future of the Internet. At noon local time in Washington, DC, the CEOs of Apple, Amazon, Facebook, and Google will appear virtually before US lawmakers who are investigating their companies for illegal anticompetitive practices. But there is a big risk that legislators will once again miss …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/big-tech-congress" target='\"_blank\"'> Read More</a></div></div><br><div class="col-lg-3 privacy item"><div class="box"><img src="https://protonmail.com/blog/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance.png"><div class="overlayn">
+    <div class="ribbon"><span class="span">Privacy</span></div></div><h2 class="align-text">TikTok and the privacy perils of China’s first international social media platform</h2><p class="align-text date"> July 23rd, 2020</p><p class="align-text">TikTok, the video-sharing platform owned by the Chinese social media giant ByteDance, is one of the most popular social media services in the world, with an estimated 800 million users. However, its zealous data collection, use of Chinese infrastructure, and its parent company’s close ties to the Chinese Communist Party make it a perfect tool …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/tiktok-privacy" target='\"_blank\"'> Read More</a></div></div><br><div class="col-lg-3 encryption item"><div class="box"><img src="https://protonmail.com/blog/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption.png"><div class="overlayn">
+    <div class="ribbon"><span class="span">Encryption</span></div></div><h2 class="align-text">The Lawful Access to Encrypted Data Act wants to ban strong encryption</h2><p class="align-text date"> July 22nd, 2020</p><p class="align-text">The United States Congress is considering a law that would destroy online privacy as we know it and essentially outlaw the most secure American tech products, such as Signal. The law would ban end-to-end encryption for large companies and require developers to break their own products at the request of law enforcement agencies. The bill …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/usa-laed-act-anti-encryption" target='\"_blank\"'> Read More</a></div></div><br><div class="col-lg-3 news item"><div class="box"><img src="https://protonmail.com/blog/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong.png"><div class="overlayn">
+    <div class="ribbon"><span class="span">Articles & News</span></div></div><h2 class="align-text">Chinese government builds new Great Firewall around Hong Kong</h2><p class="align-text date"> July 6th, 2020</p><p class="align-text">The governing body of Hong Kong rushed approval of Article 43, which grants sweeping powers to Hong Kong law enforcement, including the ability to intercept private communications and censor online media without a warrant. These regulations specify the powers that the Hong Kong government can take under the National Security Law that was passed by …</p>
+<a class="align-text readmore" href="https://nnekaen.github.io/blogs-api/blog/china-censorship-hong-kong" target='\"_blank\"'> Read More</a></div></div><br>
+	</div>
+
+	
+
+		
+			</div>
+	
+
+<div class="container-fluid">
+
+     <section id="emails" class="free-email-section col-sm-12 col-lg-12"> 
+    <div class="container-fluid text-center">
+		<h5 class="text-center">Get your secure email account</h5>
+		<a href="/signup" class="btn btn-primary btn-lg">Create Account</a>
+	</div>
+</section>
+		
+</div>
+			</div>
+		</article></main></div>
+	</section></div>
+            <div id="footer-widget" class="row m-0 bg-light">
+            <div class="container">
+                <div class="row">
+                                            <div class="col-sm-2"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">ProtonMail</h2>
+                <ul>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/security-details">Security</a></li>
+                    <li><a href="https://shop.protonmail.com">Shop</a></li>
+                    <li><a href="https://protonmail.com/press">Press/Media Kit</a></li>
+                    <li><a href="https://protonmail.com/tor">Onion Site</a></li>
+                    <li><a href="https://protonstatus.com/">ProtonMail Status</a></li>
+                </ul>
+            </div></div></section><section id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Social</h2>
+                <ul class="footer_socials">
+                    <li class="fb"><a href="https://facebook.com/ProtonMail"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    <li class="tw"><a href="https://twitter.com/ProtonMail"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+                    
+                    <li class="fb-forum"><a target="_blank" href="https://protonmail.uservoice.com/" rel="noopener noreferrer"><i class="fa fa-comments"></i><span>Feedback Forum</span></a></li>
+                    <li class="fb-reddit"><a target="_blank" href="https://www.reddit.com/r/ProtonMail/" rel="noopener noreferrer"><i class="fa fa-reddit-alien"></i><span>Reddit</span></a></li>
+                    <li class="insta"><a target="_blank" href="https://www.instagram.com/protonmail/" rel="noopener noreferrer"><i class="fa fa-instagram"></i><span>Instagram</span></a></li>                    
+                </ul>
+            </div></div></section></div>
+                                                                <div class="col-12 col-sm-2"><section id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Features</h2>
+                <ul>
+                    <li><a href="https://itunes.apple.com/us/app/protonmail-encrypted-email/id979659905">iOS App</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=ch.protonmail.android">Android App</a></li>
+                    <li><a href="/bridge">IMAP/SMTP Bridge</a></li>
+                    <li><a href="https://protonvpn.com/">ProtonVPN</a></li>
+                    <li><a href="https://protonmail.com/support/knowledge-base/business/">ProtonMail Business</a></li>
+                    <li><a href="https://protonmail.com/support/knowledge-base/encrypted-contacts/">Encrypted Contacts</a></li>
+                </ul>
+            </div></div></section></div>
+                                                                <div class="col-12 col-sm-2"><section id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Legal</h2>
+                <ul>
+                    <li><a href="/imprint">Imprint</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                    <li><a href="https://protonmail.com/blog/transparency-report/">Transparency Report</a></li>
+                    <li><a href="mailto:abuse@protonmail.ch">Report Abuse</a></li>
+                    <li><a href="/gdpr">GDPR Compliance</a></li>
+                </ul>
+            </div></div></section></div>
+                    										                </div>
+            </div>
+        </div>
+
+	<footer id="colophon" class="site-footer navbar-light" role="contentinfo">
+		<div class="container pt-3 pb-3">
+            <div class="site-info">
+                © 2020 <a href="https://nnekaen.github.io/blogs-api">Blog API</a>                <span class="sep"> | </span>
+                
+
+            </div>
+		</div>
+	</footer>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/popper.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/theme-script.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/skip-link-focus-fix.min.js"></script>
+ <link rel="stylesheet" href="">
+<script>
+	$(document).ready(function(){
+		$(".navbar-toggler").click(function(){
+			$("#main-nav").fadeToggle(500);
+			 }); 
+		});
+		
+		</script>
+</body>
+
+</html>
