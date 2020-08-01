@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<title>nnekaen – Blog API</title>
+
+<link rel="dns-prefetch" href="https://nnekaen.github.io/blogs-api">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//npmcdn.com">
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="//s.w.org">
+
+
+
+<link rel="stylesheet" id="wp-block-library-css" href="https://nnekaen.github.io/blogs-api/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-bootstrap-css-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-fontawesome-cdn-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/css/fontawesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="chld_thm_cfg_parent-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="custom-fa-css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=5.4.2" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-style-css" href="https://nnekaen.github.io/blogs-api/wp-content/themes/blogapi/style.css" type="text/css" media="all">
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/blogapi/js/scripts.js"></script>
+<script type="text/javascript" src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js?ver=5.4.2"></script>
+
+
+
+
+    <style type="text/css">
+        #page-sub-header { background: #505061; }
+    </style>
+    		<style type="text/css" id="wp-custom-css">
+			/* start: general layout styling */html, body{
+	position:relative !important;
+	height:100vh !important;
+}
+.box{
+	width:100%;
+	height:96%;
+		border:1px solid lightgray;
+	 box-shadow:0 0px 5px 0px lightgray;
+	display:inline-block;
+	  position : relative;
+	margin-bottom:50px;
+	border-bottom: 10px solid #9199cb;
+}
+
+.container{	
+	max-width:90%;
+}
+.container-blog {
+	width: 70%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;	
+}
+.entry-meta{
+	border-bottom:2px solid #9199cb !important;
+margin-top:20px;
+}
+
+.item{
+	left:0 !important;
+	position:relative !important;
+	display:inline-block;
+}
+.ribbon{
+  position: absolute;
+  content: '';
+  background: white;
+opacity:0.9;
+	/* Added lines */
+  top:2rem;
+	padding:8px;
+		border-right: 1px solid #9199cb;
+
+}
+.comments-area{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+	 border-top:2px solid #9199cb !important;
+}
+.csbtns{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+  margin-left: auto !important;
+}
+.csbtns .fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -8px;
+}
+.csbtns .fa-envelope:before {
+    content: "\f0e0";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa-twitter:before {
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa{
+	color:white !important;
+	background:#9199cb;
+	border-radius:100%;
+  width:40px !important;
+	height:40px;
+	padding:auto;
+	text-align:center;
+	
+
+	
+	
+}
+.post-navigation{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+}
+.container-fluid{
+	padding:0px;
+}
+#site-content{
+	width:100% !important;
+}
+.alert-info {
+    color: white;;
+	opacity:0.7;
+    background-color: #9199cb;
+    border-color: #9199cb
+}
+.nav-next a{
+	border:1px solid #9199cb !important; 
+	height:60px;
+}
+a{
+	color: #9199cb !important; 
+}
+.nav-previous a{
+	border:1px solid #9199cb !important; 
+		height:60px;
+}
+.align-text{
+	margin:10px;
+}
+.span{
+	font-size:18px;
+	color:#9199cb;
+	font-weight:700;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+	  padding:15px;
+	  margin-top:20px;
+}
+
+.btn-primary:hover {
+    color:white !important;
+    background-color:transparent;
+    border-color: #9199cb;
+}
+.date {
+	font-size:14px;
+	font-weight:bold;
+	font-style:italic;
+	color:#505061;
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+.image{
+	box-shadow: 5px 0px 10px lightgray
+}
+.img-box img{
+	height: 96%;
+    object-fit: cover;
+    border-bottom: 20px solid #9199cb;
+    margin-bottom: 30px;
+}
+.overlayn .texts h1{
+	color: black !important;
+	font-weight:700;
+	z-index:0;
+	margin:0 auto;
+	padding:20px 0px;
+	width:70%;	background:rgba(255,255,255,0.95);
+	
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 96%;
+  width: 100%;
+  opacity: 0;
+	margin-bottom: 30px;
+  transition: .5s ease;
+  background-color: #9199cb;
+}
+
+.container-img:hover .overlay {
+  opacity: 1;
+}
+.container-img {
+  position: relative;
+}
+.text h3{
+	color:white;
+}
+.text {
+  color: white;
+  font-size: 25px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+	margin:0 auto;
+	padding:20px 10px;
+	background:#505061;
+	width:70%;
+	
+}
+#primary{
+	margin-top:0px;
+}
+#content.site-content {
+    padding-bottom: 0.75rem;
+    padding-top: 0.125rem;
+}
+
+h1.entry-title{
+    font-size: 3.01rem;
+    border-bottom: 1px solid #eaecef;
+	color:#9199cb !important;
+	text-align:center;
+}
+h1{
+	color:white !important;
+}
+
+#main-nav {
+  width: 100.1%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+	text-align:center;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+#main-nav  a {
+	font-size:1.04em !important;
+
+}
+.menu-item a:hover{
+	color:#9199cb !important;
+}
+.site-header {
+	background:#505061 !important;
+	color:white !important;
+}
+.site-header a {
+	background:#505061 !important;
+	color:white !important;
+}
+.navbar-toggler-icon{
+	color:blue !important;
+}
+ .navbar-toggler  {
+    color: white !important;
+    border-color: white !important;
+}
+#post-23 .entry-header h1{
+display:none;	
+}
+#page-sub-header{
+	background:none;
+	margin-top:-25px;
+}
+#page-sub-header p{
+	color:#9199cb !important;
+	font-style:italic;
+	margin-top:-20px;
+}
+#page-sub-header h1{
+	color:#9199cb !important;
+	font-size:35px !important;
+	margin-top:-30px !important;
+}
+.fa-angle-down{
+	color:#505061 !important;
+	font-size:60px !important;
+	font-weight:bold;
+	margin-top:-100px;
+}
+h2{
+	color:#505061;
+}
+.readmore{
+	color:white !important;
+	background:#9199cb;
+	padding:10px;
+	border-radius:3px;
+}
+
+.readmore:hover{
+	color:#9199cb !important;
+	background:transparent;
+	border:1px solid #9199cb;
+	padding:10px;
+	text-decoration:none;
+	border-radius:3px;
+}
+#emails{
+	background:#505061;
+}
+.free-email-section {
+    padding: 3rem 0 4rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    clear: both;
+}
+.free-email-section h5 {
+    font-size: 2em;
+	  color:white;
+}
+
+/* Start: Recommended Isotope styles */
+ 
+/**** Isotope Filtering ****/
+ 
+.isotope-item {
+  z-index: 2;
+}
+ 
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+ 
+
+/* start: Social media styling */
+.fl-fl {
+  background: #505061;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 4px;
+  width: 195px;
+  position: fixed;
+  right: -160px;
+  z-index: 1000;
+	  vertical-align: middle !important;
+  font: normal normal 10px Arial;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.fa {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 0;
+  width: 40px;
+  margin-left: 8px;
+}
+
+.fl-fl:hover {
+  right: 0;
+}
+
+.fl-fl a {
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  line-height: 43px!important;
+  vertical-align: top !important;
+}
+
+.float-fb {
+  top: 160px;
+}
+
+.float-tw {
+  top: 215px;
+}
+.fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+    margin-left: -5px;
+}
+.float-gp {
+  top: 270px;
+}
+
+.float-rs {
+  top: 325px;
+}
+
+.float-ig {
+  top: 380px;
+}
+.social-media .fl-fl{
+	margin-top:16vh;
+}
+
+.float-pn {
+  top: 435px;
+}
+/* end: Social media styling */
+
+/* start: Isotope.js styling */
+#filters{
+	margin-left:-40px !important;margin-bottom:-15px;
+}
+.item {
+	  top:0px !important;
+
+}
+
+#isotope-list {
+    position: relative;
+	  margin-top:0px;
+	  height:100% !important;
+	  display:block;
+}
+.btn-ghost.alt {
+    color: #9199cb;
+    background-color: transparent;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+	margin-right:5px;
+}
+.btn-ghost.alt:hover {
+    color: white !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+}
+.selected{
+	background-color: #9199cb !important;
+	color:white !important;
+}
+.all{
+}
+.bar {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+#isotope-list:after {
+    content: '';
+    display: block !important;
+    clear: both !important;
+}
+/* end: Isotope styling */
+#footer-widget ul{
+	margin:0;
+	padding:0;
+}
+#footer-widget ul li{
+	list-style:none !important;
+	padding-bottom:9px;
+}
+.footer_socials i{
+	color:#9199cb;
+}
+.footer_socials li{
+	padding-bottom:-10px;
+	margin:0;
+	margin-bottom:-20px;
+	list-style:none;
+}
+.site-footer{
+	border-top:2px solid #505061;
+}		</style>
+		</head>
+
+<body class="archive author author-nnekaen author-1 hfeed">
+<div id="page" class="site">
+
+
+<div class="social-media">
+  <div class="fl-fl float-fb">
+    <i class="fa fa-facebook"></i>
+    <a href="https://facebook.com/ProtonMail" target="_blank"> Follow us!</a>
+  </div>
+  <div class="fl-fl float-tw">
+    <i class="fa fa-twitter"></i>
+    <a href="https://twitter.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-gp">
+    <i class="fa fa-reddit"></i>
+    <a href="" target="_blank">Recommend us!</a>
+  </div>
+  <div class="fl-fl float-rs">
+    <i class="fa fa-rss"></i>
+    <a href="" target="_blank">Follow via RSS</a>
+  </div>
+  <div class="fl-fl float-ig">
+    <i class="fa fa-instagram"></i>
+    <a href="https://instagram.com/ProtonMail" target="_blank">Follow us!</a>
+  </div>
+  <div class="fl-fl float-pn">
+    <i class="fa fa-pinterest"></i>
+    <a href="" target="_blank">Follow us!</a>
+  </div>
+</div>
+</div>
+
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    	<header id="masthead" class="site-header navbar-static-top navbar-light" role="banner">
+        <div class="container">
+            <nav class="navbar navbar-expand-xl p-0">
+                <div class="navbar-brand">
+                                            <a class="site-title" href="https://nnekaen.github.io/blogs-api/">Blog API</a>
+                    
+                </div>
+                <button class="navbar-toggler" type="button" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+     
+                <div id="main-nav" class="collapse navbar-collapse justify-content-end"><ul id="menu-menu-1" class="navbar-nav"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1170" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1170 nav-item"><a title="About" href="https://protonmail.com/about" class="nav-link">About</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1171 nav-item"><a title="Security" href="https://protonmail.com/security-details" class="nav-link">Security</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1169 nav-item"><a title="blog" href="https://nnekaen.github.io/blogs-api/" class="nav-link">blog</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1172 nav-item"><a title="Careers" href="https://careers.protonmail.com/" class="nav-link">Careers</a></li>
+</ul></div>
+            </nav>
+        </div>
+	</header>
+    	<div id="content" class="site-content">
+		        		
+		
+	<section id="primary" class="content-area col-sm-12 col-lg-8">
+		<main id="main" class="site-main" role="main">
+
+		
+			<header class="page-header">
+				<h1 class="page-title">Author: <span class="vcard">nnekaen</span></h1>			</header>
+
+			
+<article id="post-1685" class="post-1685 post type-post status-publish format-standard has-post-thumbnail hentry">
+ <div class="container-blog">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="https://nnekaen.github.io/blogs-api/blog/tech-ceos-hearing/" rel="bookmark">Four misleading claims tech CEOs told Congress</a></h1>			</header>
+	<div class="post-thumbnail">
+		<img width="1200" height="600" src="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-big-tech-hearing.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-big-tech-hearing.png 1200w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-big-tech-hearing-300x150.png 300w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-big-tech-hearing-1024x512.png 1024w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-big-tech-hearing-768x384.png 768w" sizes="(max-width: 1200px) 100vw, 1200px">	</div>
+	<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://nnekaen.github.io/blogs-api/blog/tech-ceos-hearing/" rel="bookmark"><time class="entry-date published updated" datetime="2020-07-30T15:18:55+00:00">July 30, 2020</time></a></span> | <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://nnekaen.github.io/blogs-api/blog/author/nnekaen/">nnekaen</a></span></span> | <span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i> <a href="https://nnekaen.github.io/blogs-api/blog/tech-ceos-hearing/#respond">Leave a Comment<span class="screen-reader-text"> on Four misleading claims tech CEOs told Congress</span></a></span>		</div>
+	<div class="entry-content">
+		<p>On Wednesday, the CEOs of four massive tech companies — Google, Apple, Facebook, and Amazon — testified before a congressional investigation about those companies’ anti-competitive practices.</p>
+<p>The CEOs were eager to portray their companies as under constant threat from competitors. However, the congressional subcommittee raised multiple examples of the companies using their power to spy on, crush, coerce, or acquire competitors.</p>
+<p>While the hearing did not reveal any particularly new information, it did force Sundar Pichai, Tim Cook, Mark Zuckerberg, and Jeff Bezos to confirm or deny (or obfuscate) their part in the consolidation of power on the Internet. In doing so, they made a number of questionable claims that do not hold up under scrutiny. </p>
+<p>We have had direct experience with some of these issues, and we believe it is important to share our perspective and set the record straight. We will focus mainly on Google and Apple because we have had the most exposure to their practices, but our overarching concerns are applicable across Big Tech.</p>
+<h2>Claim: Google lets users control their data</h2>
+<p>Responding to a question from US Rep. Val Demings, Google CEO Sundar Pichai said that “we today make it very easy for users to be in control of their data.” This is only partially true, depending on how you define “control.”</p>
+<p>This assertion is part of a <a href="https://protonmail.com/blog/google-fake-online-privacy/" target="_blank" rel="noreferrer noopener">public relations push</a> Google started last year, during which it implemented new privacy settings and features, such as the ability to turn off personalized ads. But Google continues to collect mountains of data about its users.</p>
+<p><strong>True data control would be incompatible with Google’s current business model.</strong> Google makes money by creating detailed profiles about all its users and then selling ads on the basis of that information. The process is opaque to users. And this <em>lack</em> of privacy and control is the implicit exchange for access to free services.</p>
+<h2>Claim: iOS and Android app stores have strong competition</h2>
+<p>Apple’s iOS controls 25% of the global smartphone market, and Google’s Android mostly takes up the other 75%. (In the valuable US market, Apple enjoys even more market share.)</p>
+<p>Nonetheless, when questioned by Rep. Hank Johnson about its monopoly on app distribution on its smartphones, Apple CEO Tim Cook said, “I would describe it as a street fight.” He also said, “There is a competition for developers just as there is a competition for customers.” Cook even said the App Store is just like any other feature, comparing it to a camera.</p>
+<p>This argument is patently absurd. <strong>Cook is ignoring the fact that the App Store is a market itself, in which Apple holds 100%. </strong></p>
+<p>Developers do not have the option to seek other app distribution methods. Being in business is synonymous with having an app on both the App Store and Google Play. So it is by definition a duopoly on the mobile market.</p>
+<h2>Claim: Apple is not a gatekeeper</h2>
+<p>Cook was repeatedly questioned about the App Store and whether it uses its distribution platform to privilege its own apps and suppress competition. </p>
+<p>“Clearly, if Apple is a gatekeeper, what we have done is open the gate wider,” Cook said. “We want to get every app we can on the Store, not keep them off.”</p>
+<p>But the App Store — just like Google Play, Facebook’s News Feed, or Amazon’s web hosting service — have become bottlenecks that give these companies immense power to throttle access to consumer markets or abuse data.</p>
+<p>Despite Cook’s claims that apps may only be blocked because of privacy or functionality concerns, there is a litany of app developers who say Apple’s App Store rules are opaque, arbitrary, and inconsistently applied. We have <a href="https://protonmail.com/blog/apple-app-store-antitrust/" target="_blank" rel="noreferrer noopener">experienced Apple’s problematic behavior first-hand</a> with our ProtonVPN iOS app, in which they threatened to remove our app entirely unless we deleted information from our app description that the Chinese and other authoritarian governments deemed objectionable.</p>
+<p>Even if we were to accept the “open gate” premise, Apple’s 30% tax handicaps developers in the privacy space, favoring free apps that make their money by abusing people’s data. We have previously <a href="https://protonmail.com/blog/big-tech-congress/" target="_blank" rel="noreferrer noopener">written about this in depth</a>.</p>
+<h2>Claim: Google believes privacy is a universal right</h2>
+<p>In his submitted opening remarks to the subcommittee, Pichai said, “I’ve always believed that privacy is a universal right and should be available to everyone.”</p>
+<p>There’s not much to say about this comment, except that it is extremely ironic. Pichai runs a company whose entire premise is to invade people’s privacy. As his predecessor once said: “We know where you are. We know where you’ve been. We can more or less know what you’re thinking about.”</p>
+<p>Doublespeak like this is troubling, and we hope that Congress — and Internet users — are paying attention. Because this isn’t just about antitrust. It’s about access to privacy and being able to control your own data.</p>
+<p>We started Proton in 2014 in part because of the same concerns that are coming to light today. We believe society is better served when individuals have more control over their data online. By offering encrypted email, calendar, cloud storage, and other services, Proton is providing consumers with concrete tools to protect their privacy and security.</p>
+<p>All these years later, very little about these companies’ business practices has changed, and they’ve only gotten bigger.</p>
+<p>Best Regards,<br>The Proton Team</p>
+<p><em><strong>You can get a <a rel="noreferrer noopener" href="https://protonmail.com/signup" target="_blank">free secure email account from ProtonMail here</a>.</strong></em></p>
+<p><em><strong>We also provide a <a rel="noreferrer noopener" href="https://protonvpn.com/" target="_blank">free VPN service</a> to protect your privacy.</strong></em></p>
+<p><em><strong>ProtonMail and ProtonVPN are funded by community contributions. If you would like to support our development efforts, you can upgrade to a <a rel="noreferrer noopener" href="https://protonmail.com/support/knowledge-base/paid-plans/" target="_blank">paid plan</a>. Thank you for your support.</strong></em></p>
+	</div>
+
+	<footer class="entry-footer">
+			</footer>
+	 </div>
+</article>
+
+<article id="post-1687" class="post-1687 post type-post status-publish format-standard has-post-thumbnail hentry">
+ <div class="container-blog">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="https://nnekaen.github.io/blogs-api/blog/big-tech-congress/" rel="bookmark">Three basic facts Congress must understand about Big Tech</a></h1>			</header>
+	<div class="post-thumbnail">
+		<img width="1200" height="600" src="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-24-whack.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-24-whack.png 1200w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-24-whack-300x150.png 300w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-24-whack-1024x512.png 1024w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/2020-07-24-whack-768x384.png 768w" sizes="(max-width: 1200px) 100vw, 1200px">	</div>
+	<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://nnekaen.github.io/blogs-api/blog/big-tech-congress/" rel="bookmark"><time class="entry-date published updated" datetime="2020-07-24T06:32:51+00:00">July 24, 2020</time></a></span> | <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://nnekaen.github.io/blogs-api/blog/author/nnekaen/">nnekaen</a></span></span> | <span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i> <a href="https://nnekaen.github.io/blogs-api/blog/big-tech-congress/#respond">Leave a Comment<span class="screen-reader-text"> on Three basic facts Congress must understand about Big Tech</span></a></span>		</div>
+	<div class="entry-content">
+		<p>Wednesday, July 29, is an important day for the future of the Internet. At noon local time in Washington, DC, the CEOs of Apple, Amazon, Facebook, and Google will appear virtually before US lawmakers who are investigating their companies for illegal anticompetitive practices.</p>
+<p>But there is a big risk that legislators will once again miss the point about what’s really at stake. The conversation has typically centered around exorbitant app store fees and political bias. While these are important issues, they unfortunately miss the core points which the Big Tech monopolies should really be challenged on. </p>
+<p>The tech companies and their high-powered lobbyists are hoping the hearing will be a relatively painless exercise — a way to show concern but otherwise continue their exploitative and monopolistic practices. Mark Zuckerberg’s testimony before the US Senate in 2018 shows how badly such a hearing could go, with confused senators asking questions like, How does Facebook make money? (“Senator, we sell ads,” Zuckerberg replied.)</p>
+<p>In recent years, the European Commission has taken a leading role in challenging abusive and anticompetitive behavior from Big Tech companies, and Congress can and should take a page from the European Commission’s playbook. As the world’s largest encrypted email service, we champion a new way of doing business online which is directly in competition with many of the tech giants. Our model puts user privacy first, returns control over online data to the user, and puts people ahead of advertisers. As such, we have been ordered to provide information for the European Commission investigation and asked to submit a briefing to the US House Committee on the Judiciary, which is conducting Wednesday’s hearing. We are very familiar with how Big Tech attempts to distract, detract, and entrap those seeking to investigate their anticompetitive practices.</p>
+<p>While Wednesday’s congressional testimony is sure to feature plenty of gaslighting, denials, and outright attempts to obfuscate the issue, there are three inescapable facts about Big Tech antitrust that must be highlighted.</p>
+<h2>1. Antitrust is really about privacy</h2>
+<p>Some of Wednesday’s testimony will likely focus on the 30% tax that Apple and Google skim off the top of every in-app transaction on the mobile platforms they control. We have already <a rel="noreferrer noopener" href="https://protonmail.com/blog/apple-app-store-antitrust/" target="_blank">written about this issue in detail</a>. It is essentially a form of extortion that companies must pay if they want to stay in business, and this exploitative practice is also currently the subject of a European Commission investigation, thanks in part to a complaint filed by Spotify.</p>
+<p><strong>But the 30% fee is actually a tax on privacy, which is much worse than most people realize and has far-reaching implications for the Internet.</strong> </p>
+<p>Today, there are two primary business models online:</p>
+<ul>
+<li>One is the <strong>advertising-based business model</strong> of companies such as Google and Facebook. In this model, services are provided for free, but in exchange, these companies abuse user privacy and exploit personal data in order to make money, either through advertising or by selling access to users to third parties. This model is <strong>exploitative, invades user privacy, and puts the fundamental interest of users behind the interest of advertisers</strong> and other exploiters of private data. This model has also given rise to harmful data scandals, Cambridge Analytica being the most prominent example.</li>
+</ul>
+<ul>
+<li>An alternative model is the <strong>freemium subscription model</strong> utilized by services like ProtonMail. In this model, basic services are also provided for free, but premium features require a paid subscription, and the revenue from paid subscriptions is used to subsidize the free product. This model encourages companies to protect privacy because the revenues do not come from packaging and reselling user data and access to the highest bidder. In other words, <strong>companies are incentivized to put people first</strong>. </li>
+</ul>
+<p>What Apple and Google’s 30% fee on subscriptions does is discriminate between these two types of companies on their mobile platforms. Privacy-protecting, subscription-based companies are hit with a 30% fee, while companies using the invasive, ad-based business model are not similarly penalized.</p>
+<p>This is a massive handicap for companies that protect users’ personal data. <strong>When Google forces subscription services to pay a 30% fee, they are harming competitors to their own ad-based business model, thereby reinforcing their own market dominance.</strong></p>
+<p>App stores are not the only playing field that Big Tech has tilted in their favor. Their monopolies have infiltrated every corner of the Internet, from the search engines we use to the whole mobile ecosystem of Android and iOS, which dominate hardware sales and require phones to be shipped with their own apps pre-installed. </p>
+<p>The end result is that by intentionally creating an ecosystem which favors the ad-based business model, online privacy is being systematically dismantled, to the detriment of Internet users. </p>
+<h2>2. The issue is not price, but choice</h2>
+<p>Many opponents of antitrust actions say the government should not be able to tell private companies what they can charge for services. The argument is that government regulation of pricing will undermine the market economy. </p>
+<p>However, the problem with Apple and Google’s app stores is not actually the 30% fees (despite the fact that they are exploitative and unjustified). The problem is really the lack of choice — in this case, choice in payment method. </p>
+<p>Apple and Google force developers to conduct all mobile transactions through their own in-app payment system (subject to 30% fees) or the app gets banned (i.e., put out of business). By enforcing a monopoly over mobile payments within their app stores, they can effectively charge whatever they want.</p>
+<p>If there were other options permitted for iOS and Android in-app payments, real competition would be allowed to occur, and very likely, payment fees would drop to a much lower level.</p>
+<p>In other words, the “price” would be set by supply and demand, based on market dynamics. So, far from undermining the market economy, <strong>antitrust action to permit competition actually serves to safeguard the market economy</strong> and ensure that it functions properly.</p>
+<p>The principle similarly extends beyond mobile in-app payments. Today, iOS and Android drive users toward favored web browsers, search engines, and mail apps through defaults and steering. For instance, on iOS, Safari is the default browser and it is impossible to change it, and on Android a full suite of Google services come bundled. If consumers truly had an opportunity to select which services they want instead of just getting the bundled defaults, it is highly likely that many would pick options which are better for privacy.</p>
+<p>The Big Tech companies understand this, and they are seeking to focus the debate on price as opposed to choice. For example, on July 22, Apple released a “<a href="https://www.cnbc.com/2020/07/22/apple-defends-app-stores-30percent-cut-ahead-of-tim-cook-testimony.html" target="_blank" rel="noreferrer noopener">study</a>” attempting to demonstrate that its 30% fees are not excessive. </p>
+<p>These arguments are distractions designed to keep the narrative focused on the size of the commission rather than the larger question of whether policies and rules preventing consumer choice constitute illegal antitrust violations. Congress would do well not to fall into this well-laid trap. </p>
+<h2>3. Tech monopolies cause real damage </h2>
+<p>Consumers suffer the greatest harm from the Big Tech monopolies. The most obvious damage is the cost of the exorbitant fees, which are inevitably passed on to consumers. Unless companies have an uncommonly large 30% profit margin, some costs must be passed on to consumers, and there are numerous examples of this, such as Tinder and ProtonMail, which charge higher prices on mobile in order to compensate for these fees.  </p>
+<p>The true cost, however, goes beyond the monetary. By forcing virtually all subscription services to hand over 30% of revenue, the entire mobile developer ecosystem is deprived of funds which otherwise could be invested in innovation, leading ultimately to worse products for users.</p>
+<p>But perhaps worst of all, by constructing ecosystems which strongly favor privacy-invading services at the expense of services which put user privacy first, consumers are ultimately hurt by having far less privacy online. There are many powerful <a href="https://protonvpn.com/blog/how-to-protect-online-privacy/" target="_blank" rel="noreferrer noopener">reasons why privacy matters</a>, including to preserve freedom of expression and to stop oppression from authoritarian governments. </p>
+<p>One reason for the importance of privacy that even members of Congress should appreciate is that better data protections would reduce the <a href="https://www.securitymagazine.com/articles/90607-cost-of-data-breaches-has-risen-12-percent" target="_blank" rel="noreferrer noopener">cost of data breaches</a> and would streamline regulations, which in the US are <a href="https://www.cfr.org/report/reforming-us-approach-data-protection" target="_blank" rel="noreferrer noopener">currently a mess</a> and expensive for businesses to comply with.</p>
+<h2>How Congress can act</h2>
+<p>It is essential to restore competition and choice to the technology marketplace. While Big Tech has led many innovations, it has equally smothered pioneering new companies, particularly in the realm of privacy.</p>
+<p>This may be Congress’s big chance to take antitrust actions that safeguard the market economy in the interest of the people they represent. On Wednesday, they must not only ask tough questions — they must ask the correct questions based on a genuine understanding of the stakes. They must do their research and not waste time with softball questions, as their Senate colleagues have done in the past. </p>
+<p>We also strongly encourage the US to follow Europe’s lead and work on legislative solutions to regulate technology gatekeepers in ways that promote widespread prosperity. It is necessary to update existing antitrust legislation, which dates back to the 1890s, for the digital age to address new challenges of the 21st century (the Electronic Frontier Foundation has <a href="https://www.eff.org/deeplinks/2019/02/antitrust-enforcement-needs-evolve-21st-century" target="_blank" rel="noreferrer noopener">explained</a> some of the considerations in this regard).</p>
+<p>Big Tech is holding back the Internet. But by opening the door for new ideas to break through and thrive, we can build a digital space that protects the rights and freedom of all people.</p>
+<p>Best Regards,<br>The Proton Team</p>
+<p><strong>UPDATE</strong> July 27, 2020: This article was updated to after the congressional hearing with the CEOs of Apple, Amazon, Facebook, and Google was rescheduled for noon, Wednesday, July 29. The hearing was delayed to allow members of Congress to pay their respects to Rep. John Lewis, who passed away on July 17.</p>
+<p><em><strong>You can get a <a rel="noreferrer noopener" href="https://protonmail.com/signup" target="_blank">free secure email account from ProtonMail here</a>.</strong></em></p>
+<p><em><strong>We also provide a <a rel="noreferrer noopener" href="https://protonvpn.com/" target="_blank">free VPN service</a> to protect your privacy.</strong></em></p>
+<p><em><strong>ProtonMail and ProtonVPN are funded by community contributions. If you would like to support our development efforts, you can upgrade to a <a rel="noreferrer noopener" href="https://protonmail.com/support/knowledge-base/paid-plans/" target="_blank">paid plan</a>. Thank you for your support.</strong></em></p>
+	</div>
+
+	<footer class="entry-footer">
+			</footer>
+	 </div>
+</article>
+
+<article id="post-1689" class="post-1689 post type-post status-publish format-standard has-post-thumbnail hentry">
+ <div class="container-blog">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="https://nnekaen.github.io/blogs-api/blog/tiktok-privacy/" rel="bookmark">TikTok and the privacy perils of China’s first international social media platform</a></h1>			</header>
+	<div class="post-thumbnail">
+		<img width="1200" height="600" src="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance.png 1200w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance-300x150.png 300w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance-1024x512.png 1024w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-tiktok-china-surveillance-768x384.png 768w" sizes="(max-width: 1200px) 100vw, 1200px">	</div>
+	<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://nnekaen.github.io/blogs-api/blog/tiktok-privacy/" rel="bookmark"><time class="entry-date published updated" datetime="2020-07-23T17:01:19+00:00">July 23, 2020</time></a></span> | <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://nnekaen.github.io/blogs-api/blog/author/nnekaen/">nnekaen</a></span></span> | <span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i> <a href="https://nnekaen.github.io/blogs-api/blog/tiktok-privacy/#respond">Leave a Comment<span class="screen-reader-text"> on TikTok and the privacy perils of China’s first international social media platform</span></a></span>		</div>
+	<div class="entry-content">
+		<p>TikTok, the video-sharing platform owned by the Chinese social media giant ByteDance, is one of the most popular social media services in the world, with an estimated 800 million users. However, its zealous data collection, use of Chinese infrastructure, and its parent company’s close ties to the Chinese Communist Party make it a perfect tool for massive surveillance and data collection by the Chinese government. </p>
+<p>After reviewing TikTok’s data collection policies, lawsuits, cybersecurity white papers, past security vulnerabilities, and its privacy policy, <strong>we find TikTok to be a grave privacy threat that likely shares data with the Chinese government. </strong>We recommend everyone approach TikTok with great caution, especially if your threat model includes the questionable use of your personal data or Chinese government surveillance.</p>
+<h2>How much user data does TikTok collect?</h2>
+<p>As with just about every social media platform, the answer is: “a lot.” According to its <a href="https://www.tiktok.com/legal/privacy-policy?lang=en#privacy-us" target="_blank" rel="noreferrer noopener">privacy policy</a>, even if you just download and open the app but never create an account, TikTok will collect your:</p>
+<ul>
+<li>IP address</li>
+<li>Browsing history (i.e., the content you viewed on TikTok)</li>
+<li>Mobile carrier </li>
+<li>Location data if you are using a mobile device (including GPS coordinates and WiFi and mobile cell data)</li>
+<li>Info on the device you used to access TikTok (for Android devices, this includes your IMEI number, which is essentially your device’s fingerprint so it can be identified, and potentially your IMSI number, which is used to track users from one phone to another)</li>
+</ul>
+<p>To open an account, you must enter a phone number or email and your date of birth. Once you have created an account, TikTok asks your permission for access to your social media accounts (like Twitter, Instagram, Facebook, etc.), your phone’s contact list, and GPS data. </p>
+<p>Once you start using the app, TikTok logs details about:</p>
+<ul>
+<li>Every video you upload</li>
+<li>How long you watch videos</li>
+<li>Which videos you like</li>
+<li>Which videos you share </li>
+<li>Any messages you exchange in the app </li>
+</ul>
+<p>Finally, if you buy coins, the in-app currency you can use to support your favorite video creators, TikTok will store your payment information.</p>
+<p>According to TikTok, if you delete your account, the company will delete your account data, videos, and information within 30 days. This claim is impossible to independently verify, as is the case with most social media companies. </p>
+<p>TikTok’s data collection is extreme, even for a social media platform that collects its users’ data to serve them with targeted ads. <strong>And TikTok explicitly states in its privacy policy that it shares your browsing data and email address with third parties so that it can serve you with targeted advertising.</strong> </p>
+<h2>TikTok faces multiple class-action lawsuits in the US</h2>
+<p>On November 27, 2019, a group of TikTok users in California filed a <a href="https://www.courthousenews.com/wp-content/uploads/2019/12/Tiktok.pdf" target="_blank" rel="noreferrer noopener">class action lawsuit</a> against TikTok and ByteDance, saying the TikTok app “includes Chinese surveillance software.” The lawsuit claims TikTok collects all videos shot on the app, even if the videos are not published or even saved. The lawsuit goes on to allege that TikTok uses the videos and photos users upload to collect biometric data (such as face scans) without user permission and that even after you close the app, TikTok continues to collect biometric data.</p>
+<p><strong>This lawsuit also alleges that TikTok surreptitiously sends user data to China</strong>, something we will address below. </p>
+<p>There is a <a href="https://www.chicagotribune.com/business/ct-biz-tiktok-illinois-biometric-privacy-lawsuit-20200513-jogjwzp4ofa67nu6pwsduxz7si-story.html" target="_blank" rel="noreferrer noopener">similar class action lawsuit</a> from users in Illinois. This suit also alleges that TikTok uses facial recognition technology and AI to collect users’ facial geometry without informing their users. Illinois has a strict law that requires companies to receive consent before they collect any biometric data.</p>
+<h2>Does TikTok share data with the Chinese government?</h2>
+<p>What distinguishes TikTok from other social media giants is that it is owned and operated by a Chinese company. ByteDance, the company that owns TikTok, is headquartered in Beijing and is worth over $100 billion. Chinese domestic laws and regulations, along with internal party politics, can make it hard to parse whether a company is independent or coordinating with the Chinese Communist Party.</p>
+<p>Even if ByteDance wanted to resist Chinese Communist Party control, it would have little real prospect of doing so. China’s <a href="https://qz.com/1016531/what-you-need-to-know-about-chinas-intelligence-law-that-takes-effect-today/" target="_blank" rel="noreferrer noopener">National Intelligence Law</a>, passed in 2017, allows the government to <strong>compel any Chinese company to provide practically any information it requests</strong>, including data on foreign citizens. Furthermore, Chinese laws also can force these requests to be kept secret and not disclosed via transparency reports. The lack of an independent judiciary system makes it almost impossible for a company to appeal a request from the Chinese government. On top of that, Chinese companies of any real size are <strong>legally required to have </strong><a href="https://www.theguardian.com/world/2019/jul/25/china-business-xi-jinping-communist-party-state-private-enterprise-huawei" target="_blank" rel="noreferrer noopener"><strong>Communist Party “cells”</strong></a><strong> inside them</strong> to ensure adherence to the party line.</p>
+<p>However, there is little evidence ByteDance wants to resist the Chinese government. In fact, there are numerous examples that it is complicit in the Chinese Communist Party’s authoritarian policies. In 2018, ByteDance shut down Neihan Duanzi, a Chinese social media platform that was primarily used to share jokes and comedy, after state censors accused it of <a href="https://supchina.com/2018/04/12/jokes-app-neihan-duanzi-shuttered-by-chinas-media-regulator-for-vulgarity/" target="_blank" rel="noreferrer noopener">hosting “vulgar” content</a>. Afterward, <strong>ByteDance said that it would “</strong><a href="https://foreignpolicy.com/2019/01/16/bytedance-cant-outrun-beijings-shadow/" target="_blank" rel="noreferrer noopener"><strong>deepen cooperation</strong></a><strong>” with the Chinese communist party.</strong> It then hired <a href="https://www.cnn.com/2018/11/02/tech/china-tech-communist-party/index.html" target="_blank" rel="noreferrer noopener">2,000 more “content reviewers</a>” and stated that<strong> “strong political sensitivity” would be an asset for the position</strong>.</p>
+<p>ByteDance has repeatedly made the case that TikTok is not available in China and that user data is not stored in China. This is misleading. <strong>In its privacy policy, TikTok explicitly reserves the right to share user information with other members of its “corporate group” (i.e., ByteDance). </strong></p>
+<p>Additionally, a <a href="https://penetrum.com/research" target="_blank" rel="noreferrer noopener">white paper</a> by the cybersecurity firm Penetrum found that <strong>over one-third of the IP addresses the TikTok APK connects to are based in China</strong>. The majority of these IP addresses are hosted by Alibaba, another Chinese tech giant. These IP addresses are what led to the allegations in the California lawsuit that TikTok secretly sends data to China. According to the Penetrum report, “<strong>TikTok does an excessive amount of tracking on its users and that the data collected is partially if not fully stored on Chinese servers with the ISP Alibaba.</strong>”</p>
+<p>Alibaba works closely with the Chinese Communist Party and supports its invasive surveillance and censorship. It has a <a href="https://www.wsj.com/articles/chinas-tech-giants-have-a-second-job-helping-the-government-see-everything-1512056284" target="_blank" rel="noreferrer noopener">police post at its headquarters</a> to facilitate data sharing with authorities and developed a popular <a href="https://www.reuters.com/article/us-china-alibaba-government/alibaba-is-the-force-behind-hit-chinese-communist-party-app-sources-idUSKCN1Q70Y7" target="_blank" rel="noreferrer noopener">Chinese propaganda app</a>. </p>
+<p>The Chinese government has long used the data it collects from Chinese tech companies to monitor, censor, and control its citizens. The all-seeing surveillance system they have created to <a href="https://www.wired.com/story/inside-chinas-massive-surveillance-operation/" target="_blank" rel="noreferrer noopener">monitor Uyghurs in Xinjiang</a> is just one example. It also maintains an <a href="https://www.scmp.com/economy/china-economy/article/3006763/chinas-social-credit-system-stops-sale-over-26-million-plane" target="_blank" rel="noreferrer noopener">Orwellian “blacklist”</a> that the government uses to prevent over 13 million “untrustworthy” citizens from purchasing plane or train tickets. One can only imagine what the Chinese government would do if it were able to extend its data collection beyond its borders.</p>
+<h2>TikTok and censorship</h2>
+<p>There are also concerns that the Chinese government and ByteDance are using TikTok as a tool to extend China’s censorship. American employees reported to the <a href="https://www.washingtonpost.com/technology/2019/11/05/inside-tiktok-culture-clash-where-us-views-about-censorship-often-were-overridden-by-chinese-bosses/" target="_blank" rel="noreferrer noopener"><em>Washington Post</em></a> that they were pressured by administrators in Beijing to restrict any political content.</p>
+<figure class="wp-block-embed-twitter wp-block-embed is-type-rich is-provider-twitter">
+<div class="wp-block-embed__wrapper">
+<blockquote class="twitter-tweet" data-width="550" data-dnt="true">
+<p lang="en" dir="ltr">New: Former TikTok employees told us the company's Beijing-based leadership often overrode their censorship concerns and restricted lots of social and political videos. "They want to be a global company … but the decisions all come from China" <a href="https://t.co/AlUiibLPb8">https://t.co/AlUiibLPb8</a> <a href="https://twitter.com/TonyRomm?ref_src=twsrc%5Etfw">@TonyRomm</a></p>
+<p>— Drew Harwell (@drewharwell) <a href="https://twitter.com/drewharwell/status/1191749991095775233?ref_src=twsrc%5Etfw">November 5, 2019</a></p></blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p></div>
+</figure>
+<p><a rel="noreferrer noopener" href="https://www.theguardian.com/technology/2019/sep/25/revealed-how-tiktok-censors-videos-that-do-not-please-beijing" target="_blank"><em>The Guardian</em></a><em> </em>reported on TikTok guidelines that require moderators to block videos that “distort” historic events, such as “Tiananmen Square incidents.” In one example, a teenage girl from Florida had her <a rel="noreferrer noopener" href="https://www.bbc.com/news/technology-50582101" target="_blank">account shut down</a> after she brought attention to the plight of the Uyghurs, a Muslim minority in China. (TikTok later reinstated her, claiming her ban was an error.)</p>
+<h2>Is TikTok secure?</h2>
+<p>In December 2019, the cybersecurity researchers at <a href="https://research.checkpoint.com/2020/tik-or-tok-is-tiktok-secure-enough/" target="_blank" rel="noreferrer noopener">Check Point Research</a> discovered multiple vulnerabilities, including ones that would allow attackers to delete user videos, make hidden videos public, or upload unauthorized videos. The researchers worked with the TikTok team, and they say that these vulnerabilities have now been resolved. </p>
+<p>In April 2020, <a rel="noreferrer noopener" href="https://www.mysk.blog/2020/04/13/tiktok-vulnerability-enables-hackers-to-show-users-fake-videos/" target="_blank">security researchers</a> discovered that some versions of the TikTok app for Android and iOS rely on HTTP connections. By not using HTTPS, TikTok makes it easy for attackers to monitor user activity and even alter the videos the user sees without their knowledge. </p>
+
+<p><iframe src="https://www.youtube-nocookie.com/embed/voTnYPfkqlY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="560" height="315" frameborder="0"></iframe></p>
+<p>TikTok says a fix is already underway, but this certainly isn’t a strong track record when it comes to security.</p>
+<h2>TikTok and children</h2>
+<p>Given the demographics of TikTok users and the amount of data TikTok collects, the company has faced criticism for collecting data from children. In February 2019, Musical.ly, the Chinese social media app that ByteDance bought and then merged with TikTok, paid a <a href="https://www.ftc.gov/news-events/press-releases/2019/02/video-social-networking-app-musically-agrees-settle-ftc" target="_blank" rel="noreferrer noopener">$5.7 million fine to the FTC</a> to settle allegations that it violated the Children’s Online Privacy Protection Act (COPPA) by letting children under 13 sign up to its platform without their parents’ consent. </p>
+<p>In May 2020, <a href="https://commercialfreechildhood.org/wp-content/uploads/2020/05/tik_tok_complaint.pdf" target="_blank" rel="noreferrer noopener">20 advocacy groups</a> alleged that TikTok is still violating COPPA. They said the company never deleted the personal information it collected from children under 13 prior to the 2019 FTC settlement, is still not obtaining parents’ consent before collecting children’s personal info, and does not allow parents to review or delete the personal information it collects from their children.</p>
+<h2>Scrutiny of TikTok increases</h2>
+<p>Since February, politicians in Australia have been calling for <a href="https://www.abc.net.au/news/2020-02-19/should-we-trust-chinese-owned-tiktok-personal-data/11962086" target="_blank" rel="noreferrer noopener">greater scrutiny</a> of the company’s data collection and possible censorship. On June 29, the Indian government <a href="https://www.cnbc.com/2020/06/29/india-bans-tiktok-and-dozens-of-other-chinese-apps-over-security-concerns.html" target="_blank" rel="noreferrer noopener">banned TikTok</a>, along with over 50 other Chinese apps. And now, the <a href="https://www.cnn.com/2020/07/07/tech/us-tiktok-ban/index.html" target="_blank" rel="noreferrer noopener">US government</a> is also weighing whether they should impose a ban on the app.  </p>
+<p>As one US lawmaker said to the <a href="https://www.wsj.com/articles/tiktok-looking-at-ways-to-shake-off-its-ties-to-china-11574073001" target="_blank" rel="noreferrer noopener"><em>Wall Street Journal</em></a>, “<strong>all it takes is one knock on the door of their parent company [ByteDance], based in China, from a Communist Party official for that data to be transferred [from TikTok] to the Chinese government’s hands, whenever they need it.</strong>”</p>
+<p>Recently, US politicians have floated the idea of <a href="https://www.theguardian.com/technology/2020/jul/17/tiktok-could-break-away-from-chinese-parent-to-avoid-ban-says-trump-adviser" target="_blank" rel="noreferrer noopener">ByteDance selling TikTok</a> as one way for the social media company to avoid questions over what it does with its users’ data. However, Chinese infrastructure and control are clearly deeply integrated into TikTok’s system, and it would be extremely hard for any company that purchased it to undo. </p>
+<h2>Our take on TikTok</h2>
+<p>We stand for freedom of expression, and we want everyone to be able to voice their opinion. However, social media giants from TikTok to Facebook demand troves of personal data in exchange for the use of their platform. Often this data collection verges into the extreme. Does TikTok need access to your device’s ID number to deliver its service?</p>
+<p>The fact that TikTok is owned by a Chinese company, one that has explicitly said it would deepen its cooperation with the Chinese Communist Party, makes this excessive data collection even more concerning. The Chinese government has a history of strong-arming and co-opting Chinese tech companies into sharing their data and then using this data to intimidate, threaten, censor, or engage in human rights abuses.</p>
+<p>For these reasons, it is our opinion that, <strong>from a security and privacy standpoint,</strong> <strong>TikTok is an extremely dangerous social media platform</strong>. Its potential for mass collection of data from hundreds of millions of adults, teenagers, and children poses a grave risk to privacy. We believe that TikTok should be<strong> </strong>viewed with great caution, and if this concerns you, you should strongly consider <a rel="noreferrer noopener" href="https://protonvpn.com/blog/how-to-delete-tiktok/" target="_blank">deleting TikTok</a> and its associated data. </p>
+<p><em>You can get a </em><strong><em><a href="https://protonmail.com/signup" target="_blank" rel="noreferrer noopener">free secure email account from ProtonMail here</a></em></strong><em>.</em></p>
+<p><em>We also provide a </em><strong><em><a href="https://protonvpn.com/" target="_blank" rel="noreferrer noopener">free VPN service</a></em></strong><em> to protect your privacy.</em></p>
+<p><em>ProtonMail and ProtonVPN are funded by community contributions. If you would like to support our development efforts, you can upgrade to a </em><strong><em><a rel="noreferrer noopener" href="https://protonmail.com/support/knowledge-base/paid-plans/" target="_blank">paid plan</a></em></strong><em>. Thank you for your support.</em></p>
+	</div>
+
+	<footer class="entry-footer">
+			</footer>
+	 </div>
+</article>
+
+<article id="post-1691" class="post-1691 post type-post status-publish format-standard has-post-thumbnail hentry">
+ <div class="container-blog">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="https://nnekaen.github.io/blogs-api/blog/usa-laed-act-anti-encryption/" rel="bookmark">The Lawful Access to Encrypted Data Act wants to ban strong encryption</a></h1>			</header>
+	<div class="post-thumbnail">
+		<img width="1200" height="600" src="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption.png 1200w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption-300x150.png 300w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption-1024x512.png 1024w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-LAED-Act-anti-encryption-768x384.png 768w" sizes="(max-width: 1200px) 100vw, 1200px">	</div>
+	<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://nnekaen.github.io/blogs-api/blog/usa-laed-act-anti-encryption/" rel="bookmark"><time class="entry-date published updated" datetime="2020-07-22T18:36:52+00:00">July 22, 2020</time></a></span> | <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://nnekaen.github.io/blogs-api/blog/author/nnekaen/">nnekaen</a></span></span> | <span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i> <a href="https://nnekaen.github.io/blogs-api/blog/usa-laed-act-anti-encryption/#respond">Leave a Comment<span class="screen-reader-text"> on The Lawful Access to Encrypted Data Act wants to ban strong encryption</span></a></span>		</div>
+	<div class="entry-content">
+		<p>The United States Congress is considering a law that would destroy online privacy as we know it and essentially outlaw the most secure American tech products, such as Signal. The law would ban end-to-end encryption for large companies and require developers to break their own products at the request of law enforcement agencies.</p>
+<p>The bill is called the <a href="https://www.documentcloud.org/documents/6956033-Lawful-Access-to-Encrypted-Data-Act.html" target="_blank" rel="noreferrer noopener">Lawful Access to Encrypted Data (LAED) Act</a>, proposed by three Republican Senators on June 23.</p>
+<p>The stated purpose of the law is to give police and security agencies the ability to quickly access information contained on a suspect’s encrypted device. The LAED Act targets <em>all </em>data that is encrypted, both in transit and at rest. So not only would a tech company be forced to help the FBI break into a smartphone seized from a suspect, but it would also have to build a way to let officials monitor end-to-end encrypted communications, including whoever the suspect is talking to.</p>
+<p>This bill reopens the door to the kind of government surveillance that led us to create Proton back in 2014. Make no mistake: This bill puts the privacy and security of everyone at risk, not only suspected criminals. <strong>If a back door exists, no one is safe.</strong></p>
+<h2>What is the Lawful Access to Encrypted Data Act?</h2>
+<p>This law would require any American company with more than 1 million users in the US to be able to decrypt its users’ data and present it to law enforcement. It would apply to operating systems, messaging apps, videoconference apps, email providers, and cloud storage apps, as well as any device that has at least 1 GB of memory. </p>
+<p>This bill also attacks the encryption system that keeps the entire Internet secure. The LAED Act would require a backdoor to HTTPS, the system that secures almost all websites with TLS encryption, so that law enforcement could access encrypted metadata. Without HTTPS, attackers can trace your online activity from site to site. If HTTPS were to be broken it would fundamentally alter how the Internet worked. </p>
+<h2>How would the LAED Act work?</h2>
+<p>The LAED Act would supplement the ways law enforcement agencies get permission to access private information. Currently, if authorities want to access data at rest (such as a photo on your computer) they need a search warrant, and if they want to access data in motion (such as text messages being sent over the Internet) they need permission for a wiretap.</p>
+<p>Under the LAED Act, if law enforcement wants to decrypt a device to access data at rest, they would need to get a court order requiring technical assistance from the service provider in addition to the standard search warrant. <strong>The LAED Act would set a comically low bar to require decryption: All the police have to do is prove there are “reasonable grounds to believe” decrypting a device will help in the execution of their search warrant.</strong> In other words, if the authorities can prove that it is reasonable to expect that decrypting a device will yield useful information, then a judge <em>must </em>order that the device be decrypted and the service or device provider in question <em>must </em>decrypt their product.</p>
+<ul>
+<li>Example: Under the LAED Act, police could require Apple to decrypt a suspect’s phone so that it can access the data it holds (presuming it can convince a judge that there are “reasonable grounds to believe” it contains useful information).</li>
+</ul>
+<p>To give law enforcement access to data in transit, the LAED Act would add the word “decrypt” right into the technical assistance a service provider must perform if it is served with a wiretap warrant. A wiretap warrant lets law enforcement get access to the content of a message or conversation. This new wording would force any service provider that is served with a wiretap to undo its encryption and present the plaintext content of the messages in question to law enforcement.</p>
+<ul>
+<li>Example: Under the LAED Act, law enforcement could require WhatsApp to decrypt a conversation so it can read messages exchanged between suspects so long as it can get a wiretap warrant. </li>
+</ul>
+<p>The LAED Act also embeds this “decrypting” language directly into warrants that give police access to the metadata of text messages or emails, known as pen register/tap-and-trace warrants. So police would be able to see who sent the message and who received it. </p>
+<p><strong>This act would effectively require any American company that offers E2EE to redesign its product so that it can be decrypted. </strong></p>
+<p>If there is a service that does not yet have a known decryption method, the LAED Act lets law enforcement agencies issue an “assistance capability directive.” In short, this requires a company to develop (or maintain) a way around encryption. And this can be applied to any company, <strong>not just ones that meet the 1 million user threshold</strong>. </p>
+<p>The bill even created a prize competition to incentivize researchers to develop new ways to break secure cryptography. </p>
+<figure class="wp-block-embed-twitter wp-block-embed is-type-rich is-provider-twitter">
+<div class="wp-block-embed__wrapper">
+<blockquote class="twitter-tweet" data-width="550" data-dnt="true">
+<p lang="en" dir="ltr">“How will we do it? Crap, we don’t know. Maybe we should offer people some money to figure it out.” <a href="https://t.co/UUrJZnhHAj">pic.twitter.com/UUrJZnhHAj</a></p>
+<p>— Matthew Green (@matthew_d_green) <a href="https://twitter.com/matthew_d_green/status/1275972097555288065?ref_src=twsrc%5Etfw">June 25, 2020</a></p></blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p></div>
+</figure>
+<h2>How would the LAED Act affect you?</h2>
+<p><strong>As a Proton user, your data would remain secure.</strong> Because we are a Swiss company and store all your data on servers in data centers in Switzerland, ProtonMail is not subject to US laws. Any request from foreign law enforcement needs to be approved by a Swiss authorities. This means that even if this bill became law, we would be able to continue providing <a href="https://protonmail.com/blog/what-is-end-to-end-encryption/" target="_blank" rel="noreferrer noopener">end-to-end encryption</a> and <a href="https://protonmail.com/blog/zero-access-encryption/" target="_blank" rel="noreferrer noopener">zero-access encryption</a> to our users, ensuring their messages stay secure and private.</p>
+<p>However, if this bill is passed, the Internet’s overall security would dramatically decrease. Storing any personal data on your smartphone or conducting business online would become much riskier. As long as there is a backdoor in encryption, it is simply a matter of time before hackers discover it and exploit it.</p>
+<p>LAED would also have immediate, concrete impacts. Companies might deploy weaker encryption on their products in the US. The ban on end-to-end encryption in the US means that if  WhatsApp and Signal want to keep their encryption, they would likely have to remove their apps from the US versions of the App Store and Google Play. The encryption used on Apple’s iMessage and Android, iOS, macOS, and Windows devices would all have to be redesigned with backdoors.</p>
+<p>Given the United States’ role in tech development, this law could also have a profound impact on the use and application of strong encryption around the world. If US companies develop the ability to build backdoors into existing secure encryption systems, that technology will be in high demand worldwide, especially by authoritarian governments. </p>
+<h2>The LAED Act must be stopped</h2>
+<p>This is an explicit attack on encryption that rejects the advice of virtually every security researcher. The problem, as we have stated again and again, is that <strong>any encrypted platform with a backdoor is fundamentally insecure.</strong> There is no such thing as a backdoor that only lets the good guys in. If there is a vulnerability, eventually, someone will find it and exploit it. </p>
+<p>Once these vulnerabilities are built into platforms, the key to exploiting them will become the number one target of every hacker. Keeping these keys secure would be almost impossible. The US government has failed at this task in the past, like when a group known as <a href="https://arstechnica.com/information-technology/2017/04/nsa-leaking-shadow-brokers-just-dumped-its-most-damaging-release-yet/">the Shadow Brokers</a> stole and published CIA hacking tools.</p>
+<p>If <em>every</em> communications service has a backdoor, then the entire premise of the Internet as we know it collapses: The Internet and all the knowledge-sharing, self-expression, and economic transactions it enables could not function without encryption. If people are afraid that hackers will read their emails or steal their credit card numbers, the Internet will become useless.</p>
+<p>This law is also indicative of a disturbing trend that is sweeping Western democracies. It is simple to trace the “assistance capability directive” in the LAED Act to the “technical assistance notices” in <a rel="noreferrer noopener" href="https://protonmail.com/blog/australia-anti-encryption-law/" target="_blank">Australia’s Assistance and Access Law</a>, which was inspired by the <a rel="noreferrer noopener" href="https://protonmail.com/blog/investigatory-powers-bill-email-privacy/" target="_blank">UK’s Investigatory Powers Act</a>. All of these laws whittle away at their citizens’ rights and the security of the Internet. Seeing such a law passed and enforced in the US could encourage other countries to pass their own version of the LAED Act.</p>
+<h2>What you can do</h2>
+<p>The LAED Act is currently sitting in the Committee on the Judiciary. It has not faced a floor vote in either the Senate or the House of Representatives. You can monitor its progress <a href="https://www.congress.gov/bill/116th-congress/senate-bill/4051?r=1&s=1" target="_blank" rel="noreferrer noopener">here</a>.</p>
+<p>If you are concerned about your privacy, you can also sign up for a <a rel="noreferrer noopener" href="https://protonmail.com/signup" target="_blank">free email account</a> with ProtonMail. This account will also give you access to the free version of <a rel="noreferrer noopener" href="https://account.protonvpn.com/signup" target="_blank">ProtonVPN</a>, which you can use to encrypt your online browsing. </p>
+<p>We also urge everyone to read the bill itself along with other explainers of how the bill will work. The <a rel="noreferrer noopener" href="https://www.eff.org/deeplinks/2020/06/senates-new-anti-encryption-bill-even-worse-earn-it-and-thats-saying-something" target="_blank">Electronic Frontier Foundation</a> has a helpful analysis of the bill. </p>
+<p>If you are an American who is worried about your right to privacy, <strong>you should call or write to your representatives in Congress and tell them you are against the LAED Act.</strong> By voicing your support for strong encryption, you will be contributing to the fight to keep the Internet secure, private, and free.</p>
+<p><strong><em>You can get a</em></strong><a href="https://protonmail.com/signup" target="_blank" rel="noreferrer noopener"><strong><em> free secure email account from ProtonMail here</em></strong></a><strong><em>.</em></strong></p>
+<p><strong><em>We also provide a</em></strong><a rel="noreferrer noopener" href="https://protonvpn.com/" target="_blank"><strong><em> free VPN service</em></strong></a><strong><em> to protect your privacy.ProtonMail and ProtonVPN are funded by community contributions. If you would like to support our development efforts, you can upgrade to a</em></strong><a rel="noreferrer noopener" href="https://protonmail.com/support/knowledge-base/paid-plans/" target="_blank"><strong><em> paid plan</em></strong></a><strong><em>. Thank you for your support.</em></strong></p>
+	</div>
+
+	<footer class="entry-footer">
+			</footer>
+	 </div>
+</article>
+
+<article id="post-1693" class="post-1693 post type-post status-publish format-standard has-post-thumbnail hentry">
+ <div class="container-blog">
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="https://nnekaen.github.io/blogs-api/blog/china-censorship-hong-kong/" rel="bookmark">Chinese government builds new Great Firewall around Hong Kong</a></h1>			</header>
+	<div class="post-thumbnail">
+		<img width="1200" height="600" src="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong.png 1200w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong-300x150.png 300w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong-1024x512.png 1024w,https://nnekaen.github.io/blogs-api/wp-content/uploads/2020/07/ProtonMail-Blog-China-censorship-Hong-Kong-768x384.png 768w" sizes="(max-width: 1200px) 100vw, 1200px">	</div>
+	<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://nnekaen.github.io/blogs-api/blog/china-censorship-hong-kong/" rel="bookmark"><time class="entry-date published updated" datetime="2020-07-06T23:16:09+00:00">July 6, 2020</time></a></span> | <span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://nnekaen.github.io/blogs-api/blog/author/nnekaen/">nnekaen</a></span></span> | <span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i> <a href="https://nnekaen.github.io/blogs-api/blog/china-censorship-hong-kong/#respond">Leave a Comment<span class="screen-reader-text"> on Chinese government builds new Great Firewall around Hong Kong</span></a></span>		</div>
+	<div class="entry-content">
+		<p>The governing body of Hong Kong rushed approval of <a href="https://www.info.gov.hk/gia/general/202007/06/P2020070600784.htm?fontSize=1" target="_blank" rel="noreferrer noopener">Article 43</a>, which grants sweeping powers to Hong Kong law enforcement, including the ability to intercept private communications and censor online media without a warrant. These regulations specify the powers that the Hong Kong government can take under the <a href="https://www.cnn.com/2020/06/29/china/hong-kong-national-security-law-passed-intl-hnk/index.html" target="_blank" rel="noreferrer noopener">National Security Law</a> that was passed by China’s National People’s Congress on June 30.</p>
+<p>Article 43 was published at 9:51 PM local time, July 6, and went into effect two hours later at midnight on July 7. The regulations it introduces make it much easier for Chinese authorities to stifle dissent in Hong Kong. Human rights activists and protestors fear that these regulations will allow China to surround Hong Kong with the ‘Great Firewall,’ the name given to the technological controls and legislative acts that allow China to censor Chinese websites and prevent access to the outside Internet.</p>
+<h2>What is contained in Article 43?</h2>
+<p>This rapidly introduced regulation gives law enforcement broad authority to investigate and censor anything or anyone that “endangers national security,” a concept that itself is vaguely defined and allows for the suppression of free speech. It allows the police to request the removal of an online message they deem inflammatory without a warrant or approval from a court. Any social media provider, Internet hosting service, and/or network service provider that does not delete or restrict access to a message after receiving such a request will face a fine of 100,000 Hong Kong dollars (roughly $13,000) and six months imprisonment. Any individual that refuses to delete an offensive post will face the same fine and up to a year in prison.</p>
+<p>In cases where the messages are not immediately deleted, the police can get a warrant to seize the relevant electronic devices and force decryption.</p>
+<p>Article 43 also dramatically expands the surveillance powers of Hong Kong law enforcement. Covert surveillance operations do not need court approval or a warrant, only approval from Hong Kong’s Chief Executive. It also states that “less intrusive covert surveillance” may be approved by a police force representative designated by the Chief Executive. This lack of oversight means there is no one to consider the surveillance subject’s basic right to privacy and due process.</p>
+<p>These regulations extend law enforcement’s authority offline as well. Police can now (under exceptional circumstances) search premises or seize property without a warrant. They can also force anyone they suspect of violating the national security law to surrender their passport, preventing them from leaving Hong Kong, although this requires a warrant.</p>
+<p>Article 43 effectively destroys the “one country, two systems” principle that allowed Hong Kong to maintain the freedom of speech, rule of law, and general openness that made the city such an international success. These regulations effectively quash the rights of Hong Kong citizens and subject them to the same surveillance and censorship that all Chinese citizens face.</p>
+<p>The implementation of Article 43 completes the process that began with China’s National Security Law of June 30, which stripped Hong Kong of its autonomy. The national security law also threatens life imprisonment for any acts of “separatism, subversion, terrorism and foreign interference.” </p>
+<h2>What this means for Hong Kong</h2>
+<p>First, these regulations will immediately curb the media and Internet freedom of Hong Kong. Article 43 allows the Hong Kong police to force Internet service providers (ISPs) and social media platforms to censor the Internet for them. It seems unlikely that Hong Kong ISPs will be able to maintain the open and free Internet that Hong Kong is known for and comply with these regulations. </p>
+<p>Second, the citizens of Hong Kong can no longer expect their rights to be protected. These regulations were implemented in response to the protests that have dominated the city since the spring of 2019. Everything about Article 43, from the broad powers it grants to law enforcement to its lack of oversight and due process to the way it was put into force in the middle of the night, smacks of an effort to undermine the legitimate rule of law. </p>
+<p>This day was foreshadowed on June 30, when China’s national security went into effect. As soon as the law was implemented, a flood of Hong Kongers <a href="https://www.businessinsider.com/hk-activists-disband-delete-social-posts-china-pass-security-law-2020-6" target="_blank" rel="noreferrer noopener">deleted their social media accounts</a>, fearing political messages could be used to convict them of subversion. Even with this warning, the Hong Kong government’s brazen attitude has shocked everyone, including Hong Kong activists who have long feared Chinese suppression.</p>
+<h2>How to resist Article 43</h2>
+<p>The Chinese government will first rely on local companies to clamp down on the Hong Kong Internet. However, as we have seen in the past, the Chinese government has often had the voluntary cooperation of foreign tech companies such as <a rel="noreferrer noopener" href="https://protonmail.com/blog/apple-app-store-antitrust/" target="_blank">Apple</a> when it comes to enforcing censorship. Let us state clearly that without a Swiss court order, we will not assist or comply with any Chinese demands over Article 43, and we remain committed to protecting ProtonMail and ProtonVPN users in Hong Kong.</p>
+<p>This government attack on its citizens’ rights is precisely the type of situation that led us to develop ProtonMail and ProtonVPN. The first debate over China’s national security law back in May turned ProtonVPN into one of Hong Kong’s <a href="https://protonvpn.com/blog/hong-kong-security-law/" target="_blank" rel="noreferrer noopener">most popular apps</a>. Now, we reaffirm our commitment to defend the privacy and freedom of speech that is necessary for democracy to flourish. You can support these efforts by signing up for a <a href="https://protonmail.com/">ProtonMail secure email account</a> and standing with Hong Kong.</p>
+<p><em>You can get a </em><strong><em><a href="https://protonmail.com/signup" target="_blank" rel="noreferrer noopener">free secure email account from ProtonMail here</a></em></strong><em>.</em></p>
+<p><em>We also provide a </em><strong><em><a href="https://protonvpn.com/" target="_blank" rel="noreferrer noopener">free VPN service</a></em></strong><em> to protect your privacy.</em></p>
+<p><em>ProtonMail and ProtonVPN are funded by community contributions. If you would like to support our development efforts, you can upgrade to a </em><strong><em><a rel="noreferrer noopener" href="https://protonmail.com/support/knowledge-base/paid-plans/" target="_blank">paid plan</a></em></strong><em>. Thank you for your support.</em></p>
+	</div>
+
+	<footer class="entry-footer">
+			</footer>
+	 </div>
+</article>
+
+		</main>
+	</section>
+
+
+<aside id="secondary" class="widget-area col-sm-12 col-lg-4" role="complementary">
+	<section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://nnekaen.github.io/blogs-api/">
+    <label>
+        <input type="search" class="search-field form-control" placeholder="Search …" value="" name="s" title="Search for:">
+    </label>
+    <input type="submit" class="search-submit btn btn-default" value="Search">
+</form>
+
+
+
+</section><section id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget">                <h2 class="h4">Company</h2>
+                <ul>
+                    <li><a href="https://protonmail.com/blog/">Blog</a></li>
+                    <li><a href="https://protonmail.com/about">Team</a></li>
+                    <li><a href="https://protonmail.com/careers">Careers</a></li>
+                    <li><a href="https://protonmail.com/support/">Support</a></li>
+                    <li><a href="https://protonmail.com/donate">Donate</a></li>
+                    <li><a href="https://protonmail.com/blog/openpgpjs-3-release/">Open Source</a></li>
+                </ul>
+</div></section></aside>
+			</div>
+		
+	
+            <div id="footer-widget" class="row m-0 bg-light">
+            <div class="container">
+                <div class="row">
+                                            <div class="col-sm-2"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">ProtonMail</h2>
+                <ul>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/security-details">Security</a></li>
+                    <li><a href="https://shop.protonmail.com">Shop</a></li>
+                    <li><a href="https://protonmail.com/press">Press/Media Kit</a></li>
+                    <li><a href="https://protonmail.com/tor">Onion Site</a></li>
+                    <li><a href="https://protonstatus.com/">ProtonMail Status</a></li>
+                </ul>
+            </div></div></section><section id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Social</h2>
+                <ul class="footer_socials">
+                    <li class="fb"><a href="https://facebook.com/ProtonMail"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                    <li class="tw"><a href="https://twitter.com/ProtonMail"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+                    
+                    <li class="fb-forum"><a target="_blank" href="https://protonmail.uservoice.com/" rel="noopener noreferrer"><i class="fa fa-comments"></i><span>Feedback Forum</span></a></li>
+                    <li class="fb-reddit"><a target="_blank" href="https://www.reddit.com/r/ProtonMail/" rel="noopener noreferrer"><i class="fa fa-reddit-alien"></i><span>Reddit</span></a></li>
+                    <li class="insta"><a target="_blank" href="https://www.instagram.com/protonmail/" rel="noopener noreferrer"><i class="fa fa-instagram"></i><span>Instagram</span></a></li>                    
+                </ul>
+            </div></div></section></div>
+                                                                <div class="col-12 col-sm-2"><section id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Features</h2>
+                <ul>
+                    <li><a href="https://itunes.apple.com/us/app/protonmail-encrypted-email/id979659905">iOS App</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=ch.protonmail.android">Android App</a></li>
+                    <li><a href="/bridge">IMAP/SMTP Bridge</a></li>
+                    <li><a href="https://protonvpn.com/">ProtonVPN</a></li>
+                    <li><a href="https://protonmail.com/support/knowledge-base/business/">ProtonMail Business</a></li>
+                    <li><a href="https://protonmail.com/support/knowledge-base/encrypted-contacts/">Encrypted Contacts</a></li>
+                </ul>
+            </div></div></section></div>
+                                                                <div class="col-12 col-sm-2"><section id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div class="col-sm-2_4">
+                <h2 class="h4">Legal</h2>
+                <ul>
+                    <li><a href="/imprint">Imprint</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                    <li><a href="https://protonmail.com/blog/transparency-report/">Transparency Report</a></li>
+                    <li><a href="mailto:abuse@protonmail.ch">Report Abuse</a></li>
+                    <li><a href="/gdpr">GDPR Compliance</a></li>
+                </ul>
+            </div></div></section></div>
+                    										                </div>
+            </div>
+        </div>
+
+	<footer id="colophon" class="site-footer navbar-light" role="contentinfo">
+		<div class="container pt-3 pb-3">
+            <div class="site-info">
+                © 2020 <a href="https://nnekaen.github.io/blogs-api">Blog API</a>                <span class="sep"> | </span>
+                
+
+            </div>
+		</div>
+	</footer>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/popper.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/theme-script.min.js"></script>
+<script type="text/javascript" src="https://nnekaen.github.io/blogs-api/wp-content/themes/wp-bootstrap-starter/inc/assets/js/skip-link-focus-fix.min.js"></script>
+ <link rel="stylesheet" href="">
+<script>
+	$(document).ready(function(){
+		$(".navbar-toggler").click(function(){
+			$("#main-nav").fadeToggle(500);
+			 }); 
+		});
+		
+		</script>
+</body>
+
+</html>
