@@ -10,3 +10,474 @@ Updated: 2020-07-28 11:18:14
 
 */
 
+/* start: general layout styling */html, body{
+	position:relative !important;
+	height:100vh !important;
+}
+.box{
+	width:100%;
+	height:96%;
+		border:1px solid lightgray;
+	 box-shadow:0 0px 5px 0px lightgray;
+	display:inline-block;
+	  position : relative;
+	margin-bottom:50px;
+	border-bottom: 10px solid #9199cb;
+}
+
+.container{	
+	max-width:90%;
+}
+.container-blog {
+	width: 70%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;	
+}
+.entry-meta{
+	border-bottom:2px solid #9199cb !important;
+margin-top:20px;
+}
+
+.item{
+	left:0 !important;
+	position:relative !important;
+	display:inline-block;
+}
+.ribbon{
+  position: absolute;
+  content: '';
+  background: white;
+opacity:0.9;
+	/* Added lines */
+  top:2rem;
+	padding:8px;
+		border-right: 1px solid #9199cb;
+
+}
+.comments-area{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+	 border-top:2px solid #9199cb !important;
+}
+.csbtns{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+  margin-left: auto !important;
+}
+.csbtns .fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -8px;
+}
+.csbtns .fa-envelope:before {
+    content: "\f0e0";
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa-twitter:before {
+    margin: 0;
+    padding: 0;
+	 text-align:center;
+    margin-left: -4px;
+}
+.csbtns .fa{
+	color:white !important;
+	background:#9199cb;
+	border-radius:100%;
+  width:40px !important;
+	height:40px;
+	padding:auto;
+	text-align:center;
+	
+
+	
+	
+}
+.post-navigation{
+	max-width: 70% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+		 display:block;
+    margin-left: auto !important;
+}
+.container-fluid{
+	padding:0px;
+}
+#site-content{
+	width:100% !important;
+}
+.alert-info {
+    color: white;;
+	opacity:0.7;
+    background-color: #9199cb;
+    border-color: #9199cb
+}
+.nav-next a{
+	border:1px solid #9199cb !important; 
+	height:60px;
+}
+a{
+	color: #9199cb !important; 
+}
+.nav-previous a{
+	border:1px solid #9199cb !important; 
+		height:60px;
+}
+.align-text{
+	margin:10px;
+}
+.span{
+	font-size:18px;
+	color:#9199cb;
+	font-weight:700;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+	  padding:15px;
+	  margin-top:20px;
+}
+
+.btn-primary:hover {
+    color:white !important;
+    background-color:transparent;
+    border-color: #9199cb;
+}
+.date {
+	font-size:14px;
+	font-weight:bold;
+	font-style:italic;
+	color:#505061;
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+.image{
+	box-shadow: 5px 0px 10px lightgray
+}
+.img-box img{
+	height: 96%;
+    object-fit: cover;
+    border-bottom: 20px solid #9199cb;
+    margin-bottom: 30px;
+}
+.overlayn .texts h1{
+	color: black !important;
+	font-weight:700;
+	z-index:0;
+	margin:0 auto;
+	padding:20px 0px;
+	width:70%;	background:rgba(255,255,255,0.95);
+	
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 96%;
+  width: 100%;
+  opacity: 0;
+	margin-bottom: 30px;
+  transition: .5s ease;
+  background-color: #9199cb;
+}
+
+.container-img:hover .overlay {
+  opacity: 1;
+}
+.container-img {
+  position: relative;
+}
+.text h3{
+	color:white;
+}
+.text {
+  color: white;
+  font-size: 25px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+	margin:0 auto;
+	padding:20px 10px;
+	background:#505061;
+	width:70%;
+	
+}
+#primary{
+	margin-top:0px;
+}
+#content.site-content {
+    padding-bottom: 0.75rem;
+    padding-top: 0.125rem;
+}
+
+h1.entry-title{
+    font-size: 3.01rem;
+    border-bottom: 1px solid #eaecef;
+	color:#9199cb !important;
+	text-align:center;
+}
+h1{
+	color:white !important;
+}
+
+#main-nav {
+  width: 100.1%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+	text-align:center;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+#main-nav  a {
+	font-size:1.04em !important;
+
+}
+.menu-item a:hover{
+	color:#9199cb !important;
+}
+.site-header {
+	background:#505061 !important;
+	color:white !important;
+}
+.site-header a {
+	background:#505061 !important;
+	color:white !important;
+}
+.navbar-toggler-icon{
+	color:blue !important;
+}
+ .navbar-toggler  {
+    color: white !important;
+    border-color: white !important;
+}
+#post-23 .entry-header h1{
+display:none;	
+}
+#page-sub-header{
+	background:none;
+	margin-top:-25px;
+}
+#page-sub-header p{
+	color:#9199cb !important;
+	font-style:italic;
+	margin-top:-20px;
+}
+#page-sub-header h1{
+	color:#9199cb !important;
+	font-size:35px !important;
+	margin-top:-30px !important;
+}
+.fa-angle-down{
+	color:#505061 !important;
+	font-size:60px !important;
+	font-weight:bold;
+	margin-top:-100px;
+}
+h2{
+	color:#505061;
+}
+.readmore{
+	color:white !important;
+	background:#9199cb;
+	padding:10px;
+	border-radius:3px;
+}
+
+.readmore:hover{
+	color:#9199cb !important;
+	background:transparent;
+	border:1px solid #9199cb;
+	padding:10px;
+	text-decoration:none;
+	border-radius:3px;
+}
+#emails{
+	background:#505061;
+}
+.free-email-section {
+    padding: 3rem 0 4rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    clear: both;
+}
+.free-email-section h5 {
+    font-size: 2em;
+	  color:white;
+}
+
+/* Start: Recommended Isotope styles */
+ 
+/**** Isotope Filtering ****/
+ 
+.isotope-item {
+  z-index: 2;
+}
+ 
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+ 
+
+/* start: Social media styling */
+.fl-fl {
+  background: #505061;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 4px;
+  width: 195px;
+  position: fixed;
+  right: -160px;
+  z-index: 1000;
+	  vertical-align: middle !important;
+  font: normal normal 10px Arial;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.fa {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 0;
+  width: 40px;
+  margin-left: 8px;
+}
+
+.fl-fl:hover {
+  right: 0;
+}
+
+.fl-fl a {
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  line-height: 43px!important;
+  vertical-align: top !important;
+}
+
+.float-fb {
+  top: 160px;
+}
+
+.float-tw {
+  top: 215px;
+}
+.fa-reddit:before {
+    content: "\f1a1";
+    margin: 0;
+    padding: 0;
+    margin-left: -5px;
+}
+.float-gp {
+  top: 270px;
+}
+
+.float-rs {
+  top: 325px;
+}
+
+.float-ig {
+  top: 380px;
+}
+.social-media .fl-fl{
+	margin-top:16vh;
+}
+
+.float-pn {
+  top: 435px;
+}
+/* end: Social media styling */
+
+/* start: Isotope.js styling */
+#filters{
+	margin-left:-40px !important;margin-bottom:-15px;
+}
+.item {
+	  top:0px !important;
+
+}
+
+#isotope-list {
+    position: relative;
+	  margin-top:0px;
+	  height:100% !important;
+	  display:block;
+}
+.btn-ghost.alt {
+    color: #9199cb;
+    background-color: transparent;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+	margin-right:5px;
+}
+.btn-ghost.alt:hover {
+    color: white !important;
+    background-color: #9199cb;
+    border-color: #9199cb;
+    box-shadow: inset 0 0 0 1px #9199cb;
+}
+.selected{
+	background-color: #9199cb !important;
+	color:white !important;
+}
+.all{
+}
+.bar {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+#isotope-list:after {
+    content: '';
+    display: block !important;
+    clear: both !important;
+}
+/* end: Isotope styling */
+#footer-widget ul{
+	margin:0;
+	padding:0;
+}
+#footer-widget ul li{
+	list-style:none !important;
+	padding-bottom:9px;
+}
+.footer_socials i{
+	color:#9199cb;
+}
+.footer_socials li{
+	padding-bottom:-10px;
+	margin:0;
+	margin-bottom:-20px;
+	list-style:none;
+}
+.site-footer{
+	border-top:2px solid #505061;
+}
