@@ -12,7 +12,16 @@ This project requires replicated the <a href="https://protonmail.com/blog/">blog
   <li>Created a plugin folder called "blog-api" where some of the functions for implementing the Wordpress API will be executed : https://github.com/nnekaen/blogs-api/tree/master/wp-content/themes/blogapi</li>
  <li> For the project, I created a child theme from wp boostrap started template and copied all the important files. See: https://github.com/nnekaen/blogs-api/tree/master/wp-content/themes/blogapi</li>
       
-   <h3>Retrieving the last five posts from ProtonMail API</h3> 
+   <h3>Retrieving the last five posts from ProtonMail API</h3>
+   To retrieve the post. I created functions to call api endpoints withs posts and categegories.
+   For the first 5 most recent posts, I used a function :
+   
+   function callWPOne(){
+   return $response= wp_remote_get( 'https://protonmail.com/blog/wp-json/wp/v2/posts?per_page=1&_embed' );
+   }
+   _embed allows us to retrieve also the featured image.
+   
+   
    <h3>Displying blog contents in single post</h3>
    <h3>Other deliverables </h3>
    <b>SEO considerations</b> :
